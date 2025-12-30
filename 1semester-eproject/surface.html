@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galleria - Painting Surfaces</title>
+  <link href="css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="fontawesome-free-7.0.1-web/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+ /* .................navbar styling..................... */
+
+        .navbar {
+            background-color: #1e1e1e;
+            height: 100px;
+        }
+
+        .navbar-brand .logo-img {
+            width: 140px;
+            height: 100px
+        }
+
+        .navbar-nav {
+            gap: 30px;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: 0.3s;
+            font-size: 1.2rem;
+            color: #f5f5f5 !important;
+            font-weight: bold;
+        }
+
+
+        .navbar-container {
+            background-color: #1e1e1e !important;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: .5rem;
+            bottom: -.5px;
+            width: 0%;
+            height: 3px;
+            background: #1B4965;
+            transition: 0.4s ease-in-out;
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            color: #1B4965 !important;
+        }
+
+        .btn-signup {
+            background-color: #1B4965;
+            color: #f5f5f5;
+            border: none;
+            width: 150px;
+            height: 40px;
+            padding: 8px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-signup:hover {
+            background-color: #FF8C42;
+            color: #121212;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,140,66,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+
+        /* Dropdown Styles */
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-menu {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 10px 0;
+            background-color: #121212;
+            border: 1px solid #1B4965;
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            transition: background-color 0.2s ease;
+            color: #f5f5f5;
+        }
+
+        .dropdown-item:hover {
+            background-color: #1B4965;
+            color: #f5f5f5;
+        }
+
+        .navbar-collapse .mobile-search {
+            display: none;
+        }
+
+        /* LEFT SLIDE MOBILE NAVBAR */
+        @media (max-width: 991px) {
+            .navbar-brand .logo-img {
+                width: 100px;
+                height: 50px
+            }
+
+            .navbar-collapse {
+                position: fixed;
+                top: 100px;
+                left: -100%;
+                width: 280px;
+                height: 100vh;
+                background: #121212;
+                padding: 50px 20px 20px;
+                transition: 0.4s ease-in-out;
+            }
+
+            .navbar-collapse.show {
+                left: 0;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+            }
+
+            .navbar-collapse .nav-link {
+                display: inline-block;
+                padding-bottom: 6px;
+            }
+
+            .navbar-collapse .nav-link::after {
+                left: 0;
+                bottom: 0;
+                width: 0%;
+            }
+
+            .navbar-collapse .nav-link:hover::after {
+                width: 100%;
+            }
+
+            .nav-buttons {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+            }
+        }
+
+        /* .................navbar styling end..................... */
+
+                /* .............register sign up form start................... */
+        .register-form-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 9999;
+        }
+
+
+        .sign-up-form {
+            display: flex;
+            justify-content: center;
+        }
+
+        .sign-up {
+            position: relative;
+            /* for close button */
+            margin-top: 100px;
+            text-align: center;
+            padding: 15px 30px;
+            width: 100%;
+            border-radius: 10px;
+            height: auto;
+            border: none;
+            background-color: #fff;
+        }
+
+        .register-form-main-head {
+            text-transform: capitalize;
+            font-weight: bold;
+            color: #1b4965;
+        }
+
+        .sign-up p {
+            text-transform: capitalize;
+            font-weight: 500;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .forget-password {
+            color: #ff8c42;
+        }
+
+        .forget-password:hover {
+            color: #1b4965;
+        }
+
+        .register-sign-up-form-input {
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            margin: 30px 10px;
+        }
+
+        .register-sign-in-form-input {
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            margin: 20px 10px;
+
+        }
+
+        .form-control::placeholder {
+            text-align: left;
+            text-transform: capitalize;
+        }
+
+        .register-btn,
+        .register-sign-in-btn {
+            text-decoration: none;
+            text-transform: capitalize;
+            background-color: #1b4965;
+            width: 100%;
+            color: white;
+            margin: 30px auto;
+        }
+
+        .register-btn:hover,
+        .register-sign-in-btn:hover {
+            text-decoration: none;
+            text-transform: capitalize;
+            background-color: #ff8c42;
+            width: 100%;
+            color: white;
+            margin: 30px auto;
+        }
+
+        .sign-in-link a {
+            color: #ff8c42;
+            text-decoration: none;
+        }
+
+        .sign-in-link a:hover {
+            color: #1b4965;
+        }
+
+        .sign-in-form {
+            position: relative;
+            top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sign-up .register-sign-up-btn {
+            text-decoration: none;
+            margin-left: 5px;
+            text-transform: capitalize;
+            font-weight: 500;
+            color: #ff8c42;
+        }
+
+        .sign-up .register-sign-up-btn:hover {
+            color: #1b4965;
+        }
+
+        /* Cross button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: #198754;
+        }
+
+        .close-btn:hover {
+            color: red;
+        }
+        /* .............register sign up form end................... */
+
+        /* .........................surface section start................  */
+
+        .surface-container{
+          margin: 150px auto;
+        }
+
+    /* Main Categories Grid (Home View) */
+    .surface-main-card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      padding: 0 20px;
+      margin: 80px auto;
+      gap: 30px;
+      background-color: rgba(27, 73, 101, 0.05);
+      padding: 40px 20px;
+      border-radius: 20px;
+    }
+
+    /* Detailed Paintings Grid (After Click) */
+    .paintings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+      margin-bottom: 80px;
+      display: none;
+      background-color: rgba(27, 73, 101, 0.05);
+      padding: 40px 20px;
+      border-radius: 20px;
+    }
+
+    .paintings-grid .surface-main-card {
+      margin: 40px auto;
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: none;
+      margin: 30px auto;
+      padding: 12px 40px;
+      background: #1B4965;
+      color: #f5f5f5;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(27, 73, 101, 0.3);
+    }
+
+    .back-btn:hover {
+      background: #FF8C42;
+      color: #121212;
+      transform: translateY(-3px);
+    }
+
+    /* surface-Card Styles */
+    .surface-main-card{
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(27, 73, 101, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 3px solid transparent;
+    }
+
+    .surface-main-card:hover{
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(255, 140, 66, 0.3);
+      border-color: #FF8C42;
+    }
+
+    .surface-main-card-image {
+      width: 100%;
+      height: 300px;
+    }
+
+    .surface-main-card-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .surface-card-content {
+      padding: 25px;
+      text-align: center;
+    }
+
+    .surface-main-card-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #1B4965;
+      margin-bottom: 15px;
+    }
+
+    .surface-main-card-para {
+      color: rgba(27, 73, 101, 0.8);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .surface-main-card-button {
+      background: #1B4965;
+      color: #f5f5f5;
+      border: none;
+      padding: 14px 40px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .surface-main-card-button:hover {
+      background: #FF8C42;
+      color: #121212;
+      transform: translateY(-3px);
+    }
+
+    .surface-painting-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #1B4965;
+      margin-top: 10px;
+    }
+
+    /* Correct class names for painting cards */
+    .surface-card-image {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(27, 73, 101, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 3px solid transparent;
+      margin-bottom: 20px;
+    }
+
+    .surface-card-image:hover{
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(255, 140, 66, 0.3);
+      border-color: #FF8C42;
+    }
+
+
+    .surface-painting-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #1B4965;
+      margin-top: 10px;
+    }
+
+        /* .........................Footer section start............................ */
+        footer {
+            background: #121212;
+            padding: 80px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 3fr 2fr 6fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        .footer-about h3 {
+            font-size: 2rem;
+            color: #1B4965;
+            margin-bottom: 20px;
+        }
+
+        .footer-about p {
+            margin-bottom: 30px;
+            color: #f5f5f5;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 140, 66, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1B4965;
+            text-decoration: none;
+            transition: all 0.5s ease;
+        }
+
+        .social-link:hover {
+            background: #FF8C42;
+            color: #121212;
+            transform: translateY(-10px);
+        }
+
+        .footer-links h4 {
+            margin-left: 30px;
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 1.3rem;
+            color: #1B4965;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after,
+        .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #FF8C42;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li a i {
+            color: #FF8C42;
+        }
+        .footer-links ul li a:hover {
+            color: #1B4965;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #f5f5f5;
+            text-decoration: none;
+            transition: all 1s ease;
+            display: flex;
+            align-items: center;
+            line-height: 40px;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: #FF8C42;
+            transform: translateX(10px);
+        }
+
+
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 25px 0;
+            text-align: center;
+            color: #f5f5f5;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-contact p {
+            color: #f5f5f5;
+        }
+
+        .footer-contact .input {
+            width: 80%;
+            height: 40px;
+            border-radius: 10px;
+            padding: 10px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #f5f5f5;
+        }
+
+        .footer-contact .input::placeholder {
+            color: rgba(245, 245, 245, 0.7);
+        }
+
+        .subscribe-box {
+            display: flex;
+            gap: 20px;
+        }
+
+        .subscribe-box #footersubscribeBtn {
+            padding: 0 10px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #1B4965;
+            border-radius: 10px;
+            color: #f5f5f5;
+            transition: all 0.3s ease;
+        }
+
+        .subscribe-box #footersubscribeBtn:hover {
+            background-color: #FF8C42;
+            color: #121212;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width:768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* .............................footer section end..................... */
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .surface-main-card-container,
+      .paintings-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        padding: 20px 15px;
+      }
+
+      .surface-main-card-title {
+        font-size: 1.5rem;
+      }
+
+      .surface-painting-title {
+        font-size: 1.2rem;
+      }
+
+      .surface-main-card-button,
+      .back-btn {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .surface-main-card-container,
+      .paintings-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .surface-main-card-title {
+        font-size: 1.3rem;
+      }
+
+      .surface-painting-title {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+  </style>
+</head>
+
+<body>
+
+
+    <!-- /* .................navbar section start..................... */ -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container-fluid navbar-container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#home">
+                <img src="images/navbar-logo-original.png" class="logo-img" alt="">
+            </a>
+
+            <!-- Toggler Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" b>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Content -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- Links -->
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button">Paintings</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="surface.html">Surface</a></li>
+                            <li><a class="dropdown-item" href="paintings.html">Color Type</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#product-section">products</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+
+                <!-- Buttons -->
+                <div class="nav-buttons">
+                    <button class="btn btn-signup" onclick="openSignup()">Sign Up</button>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- /* .................navbar section end..................... */ -->
+
+    <!-- .....................sign-up and register form start.......,.......... -->
+         <!-- Sign Up Form -->
+    <section class="register-form-section">
+        <div id="sign-up" class="container sign-up-form">
+            <div class="col-md-6 col-lg-4 col-10">
+                <div class="sign-up">
+                    <span class="close-btn">&times;</span>
+                    <h1 class="register-form-main-head">Galleria</h1>
+                    <p>create your account</p>
+                    <input type="text" id="signup-name" class="form-control register-sign-up-form-input"
+                        placeholder="full name">
+                    <input type="text" id="signup-email" class="form-control register-sign-up-form-input"
+                        placeholder="email">
+                    <input type="password" id="signup-pass" class="form-control register-sign-up-form-input"
+                        placeholder="password">
+                    <input type="password" id="signup-cpass" class="form-control register-sign-up-form-input"
+                        placeholder="confirm password">
+                    <div id="register-btn" class="reg-btn btn register-btn">register
+                    </div>
+                    <p class="sign-in-link">already have an account? <a href="" id="open-sign-in">sign in</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign In Form -->
+        <div id="sign-in" class="container  sign-in-form  d-none">
+            <div class="col-md-6 col-lg-4 col-10">
+                <div id="log" class="sign-up">
+                    <span class="close-btn">&times;</span>
+                    <h1 class="register-form-main-head">Galleria</h1>
+                    <p>Great to have you back.</p>
+                    <input type="text" id="signin-email" class="form-control register-sign-in-form-input"
+                        placeholder="email">
+                    <input type="password" id="signin-pass" class="form-control register-sign-in-form-input"
+                        placeholder="password">
+                    <a href="" class="forget-password">forgot password?</a>
+                    <div class="reg-btn btn register-sign-in-btn">sign in</div>
+                    <p>don't have an account? <a href="" class="register-sign-up-btn" id="open-sign-up"> sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- .....................sign-up and register form end.......,.......... -->
+
+
+
+  <section class="surface-container">
+
+    <!-- Back Button -->
+    <button class="back-btn" id="backBtn">
+      <i class="fas fa-arrow-left"></i> Back to Surfaces
+    </button>
+
+    <!-- Main Categories (Home View) -->
+    <div class="surface-main-card-container gap-4" id="categoriesView">
+      <div class="surface-main-card" data-category="acrylic">
+        <img src="https://urartstudio.com/wp-content/uploads/2023/12/solitary-men-landscape-painting-2.png"
+          class="surface-main-card-img" alt="Acrylic" />
+        <div class="surface-card-content">
+          <h3 class="surface-main-card-title">Acrylic</h3>
+          <p class="surface-main-card-para">Vibrant, fast-drying, and versatile surface for bold modern art.</p>
+          <button class="surface-main-card-button">View Collection</button>
+        </div>
+      </div>
+
+      <div class="surface-main-card" data-category="canvas">
+        <img src="https://i.pinimg.com/736x/30/68/26/3068269cc92a949ce1e3c8093b1d20a7.jpg" class="surface-main-card-img"
+          alt="Canvas" />
+        <div class="surface-card-content">
+          <h3 class="surface-main-card-title">Canvas</h3>
+          <p class="surface-main-card-para">Classic textured surface perfect for oil and acrylic paintings.</p>
+          <button class="surface-main-card-button">View Collection</button>
+        </div>
+      </div>
+
+      <div class="surface-main-card" data-category="paper">
+        <img src="https://cdn.exoticindia.com/images/products/thumbnails/t800x600/sculptures-2016/pab305.jpg"
+          class="surface-main-card-img" alt="Paper" />
+        <div class="surface-card-content">
+          <h3 class="surface-main-card-title">Paper</h3>
+          <p class="surface-main-card-para">Ideal for watercolor, sketching, and delicate detailed works.</p>
+          <button class="surface-main-card-button">View Collection</button>
+        </div>
+      </div>
+
+      <div class="surface-main-card" data-category="ohp">
+        <img src="https://www.boredart.com/wp-content/uploads/2017/06/Glass-Painting-Ideas-for-Beginners-4.1.jpeg"
+          class="surface-main-card-img" alt="OHP Sheet" />
+        <div class="surface-card-content">
+          <h3 class="surface-main-card-title">OHP Sheet</h3>
+          <p class="surface-main-card-para">Transparent surface for innovative layered and light art.</p>
+          <button class="surface-main-card-button">View Collection</button>
+        </div>
+      </div>
+
+      <div class="surface-main-card" data-category="fabric">
+        <img
+          src="https://i.ytimg.com/vi/YHJiHrSn_zQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDGCq7WoGJ_a4j2ptic-XUOSm-1QA"
+          class="surface-main-card-img" alt="Fabric" />
+        <div class="surface-card-content">
+          <h3 class="surface-main-card-title">Fabric</h3>
+          <p class="surface-main-card-para">Soft and luxurious surface like silk and linen for unique textures.</p>
+          <button class="surface-main-card-button">View Collection</button>
+        </div>
+      </div>
+
+      <div class="surface-main-card" data-category="wood">
+        <img
+          src="https://i.ytimg.com/vi/eob0QRilgxc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCBAzdWhphYzH64VybnKqsMXOTDZw"
+          class="surface-main-card-img" alt="Wood" />
+        <div class="surface-card-content">
+          <h3 class="surface-main-card-title">Wood</h3>
+          <p class="surface-main-card-para">Rustic and durable natural surface with beautiful grain patterns.</p>
+          <button class="surface-main-card-button">View Collection</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Acrylic Paintings -->
+    <div class="paintings-grid" id="acrylic-paintings">
+      <div class="surface-main-card"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKuHtCLX52u_nYSmY-6dEC-z4360AwonR85g&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Abstract Flow</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM4Gs2yl_rBqthj9b8inRKHaaCPY7z3dKj4A&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Vibrant Layers</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzzCmtjT7TtsmWUe19zloWW0UFWrWwccUs3A&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Neon Dreams</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ7DvpvvMhiLX4CXYUmlqIFuzHL6EoK-Qnxg&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Fluid Motion</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTWgYIhJA-RtaxE2YEtcA9SwSMJIGSZ1V0Cg&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Bold Strokes</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://cdn.shopify.com/s/files/1/0071/6826/2215/files/mountain_1_1.jpg?v=1638071810"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Modern Fusion</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://i.pinimg.com/1200x/03/c4/d8/03c4d8414a4dfd22c7a71e51e0c250cc.jpg" class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Modern Fusion</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://5.imimg.com/data5/SELLER/Default/2023/2/YE/UO/VJ/9107407/beautiful-abstract-frameless-wall-painting-for-home-springfield-500x500.jpg"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Modern Fusion</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWzUG4feCOKdKgsSVqkgNpcIaZtbQd3EA1vw&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Modern Fusion</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Canvas Paintings -->
+    <div class="paintings-grid" id="canvas-paintings">
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYhmMUg9pu2_YUa8pEJiJYtX6DpMJK3EQEAw&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Classic Canvas</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpz50g6aiLGFUuAR0lxNttRJoCyJO_dPU9Bg&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Stretched Art</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLLGPMcRYh3Do82IBfQK2WxkljfmiNVPZeYw&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Oil Masterpiece</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://img.drz.lazcdn.com/static/pk/p/0cda0e91e320372112d08fc3bb3fb075.jpg_720x720q80.jpg"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Textured Depth</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://img.kwcdn.com/product/fancy/dbc2deb5-f187-4836-9148-87108791cc65.jpg?imageMogr2/auto-orient%7CimageView2/2/w/800/q/70/format/webp"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Gallery Wrap</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRV_IwS1LEZkWT13wPNo98OsY6_Zf7BqSJSw&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Contemporary Canvas</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paper Paintings -->
+    <div class="paintings-grid" id="paper-paintings">
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIPF4Pif_uYTpjf8MGz3YOcabuAoF1yfI8DA&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Watercolor Bloom</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-oiUcTMpPGt70NMUzKCLCxijtO8s8mYI5Q&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Delicate Sketch</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img src="https://i.ytimg.com/vi/458NDraUfwA/sddefault.jpg"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Ink Wash</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://trendyartideas.com/wp-content/uploads/2020/12/Cute-Kitten-Cat-Quilling-Paper.jpg.webp"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Handmade Texture</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://i.ytimg.com/vi/-aRgnE9K0PM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLA_twL6PkbLMrtLQPoCLxToe0UzUw"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Mixed Media</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQSCPbMXCS82UFogWXX6aZy4ep31Bl8V6IPQ&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Fine Detail</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://assets.artfullywalls.com/works/6211/mthumb-2025-03-23-2Ik8000w2ZRFsd_rMfvhgHK-xRGilrnaHwUdRR37G-XAWs4i5drnrkFNUbQKymcUTumx2QQgcTbaqksb.jpg"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Fine Detail</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- OHP Sheet Paintings -->
+    <div class="paintings-grid" id="ohp-paintings">
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs6sCVsYxHi8H7_TcSkblxkFX3lJlgmra7Gg&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Layered Light</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGR7gFaKkcWRM4Kg6BCO9DLW6rTva3WAS6bw&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Transparent Glow</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwA4gYUAWr_qGU7zDgRBv_8dV7ZeaSweyZew&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Frosted Effect</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWQYWEO39vc2B_3tZ3o7DZsuh_kk103_cpVg&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Modern Overlay</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO7SjJych8m-uDEcPSwEqvay9o1vviK7vlvA&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Crystal Clear</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://i.pinimg.com/736x/5a/1d/04/5a1d04fcb7b40703a10f7898ac32d726.jpg" class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Ethereal Art</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fabric Paintings -->
+    <div class="paintings-grid" id="fabric-paintings">
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZt71qiTzHvRyrQHkaGX7ww5DB2QKz97xn7w&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Silk Elegance</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6735a7JQOTj1wUNr_sQsOJvgsYlXFOY9V5Q&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Linen Texture</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShIqsMrgP-ADOTk9hS6RKf_nZXEHWAfJrl3Q&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Soft Fabric Flow</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyhGr0ZN6mUfuqyqrdBZbpZMl2biDcDyFD1Q&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Traditional Dye</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wood Paintings -->
+    <div class="paintings-grid" id="wood-paintings">
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuJEHg6pzGzhLVNfVgLeoOZZpDb85JdUniSw&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Wood Grain Art</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://i.pinimg.com/564x/08/49/ff/0849ffc3baf2648a9fe9ba6b95df8926.jpg" class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Rustic Panel</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://i.pinimg.com/736x/79/ea/ed/79eaedd7e984ee84642156b893f16528.jpg" class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Natural Beauty</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_gGjCfDsolOTzUR2p5S271ZxNE7-1pu_2Mw&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Plywood Master</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfUX2i-iaTZfUurIxhb7MskgYve2pRphYhWA&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Warm Tones</h3>
+        </div>
+      </div>
+      <div class="surface-card-image"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ11uxINm-LGFARWIpDkoUWhOnpZybnthrERQ&s"
+          class="surface-main-card-image" />
+        <div class="surface-card-content">
+          <h3 class="surface-painting-title">Solid Wood Art</h3>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ...............................Footer start........................ -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-about">
+          <h3>Galleria</h3>
+          <p>Creating exceptional digital experiences with modern design and cutting-edge technology. Let's
+            build something amazing together.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Usefull Links</h4>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-user"></i> About us</a></li>
+            <li><a href="gallery.html"><i class="fas fa-code"></i> Gallery</a></li>
+            <li><a href="paintings.html"><i class="fas fa-briefcase"></i>Paintings</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+            <li><a href="signup.html"><i class="fas fa-envelope"></i>Sign Up</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Subscribe Now</h4>
+          <p>Promotions, new products and sales.Not Forget Subscribe Our Brand.</p>
+          <div class="subscribe-box" style="display:flex; gap:10px;">
+            <input type="text" placeholder="SUBSCRIBE TO OUR NEWS LETTER ->" id="subscribeInput" class="input">
+            <button id="footersubscribeBtn">&#8594;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; Gallery Is First Choice For You: BEST.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ...............................Footer end........................ -->
+
+
+
+  <script src="js/bootstrap.js"></script>
+  <script src="jquerydownload.js"></script>
+  <script>
+
+     // ..................sign up register form script start............
+        $(document).ready(function () {
+
+                        // Navbar button click → show form
+            $(".btn-signup, #open-signup-btn").click(function (e) {
+                e.preventDefault();
+                $("#sign-up").closest(".register-form-section").fadeIn(300);
+            });
+
+            // Close button
+            $(".close-btn").click(function () {
+                $(this).closest(".register-form-section").fadeOut(300);
+            });
+
+            // Open Login
+            $("#open-sign-in").click(function (e) {
+                e.preventDefault();
+                $("#sign-up").fadeOut(300, function () {
+                    $("#sign-in").removeClass("d-none").fadeIn(300);
+                });
+            });
+
+            // Open Sign Up from Sign In
+            $("#open-sign-up").click(function (e) {
+                e.preventDefault();
+                $("#sign-in").fadeOut(300, function () {
+                    $("#sign-up").removeClass("d-none").fadeIn(300);
+                });
+            });
+
+            // Simple Sign Up Validation
+            $("#register-btn").click(function () {
+                let name = $("#signup-name").val();
+                let email = $("#signup-email").val();
+                let pass = $("#signup-pass").val();
+                let cpass = $("#signup-cpass").val();
+
+                if (name === "" || email === "" || pass === "" || cpass === "") {
+                    alert("All fields are required!");
+                    return;
+                }
+                if (pass !== cpass) {
+                    alert("Passwords do not match!");
+                    return;
+                }
+
+                alert("Registration Successful!");
+                $("#signup-name, #signup-email, #signup-pass, #signup-cpass").val('');
+                $("#sign-up").closest(".register-form-section").fadeOut(300);
+            });
+        });
+
+        // ..................sign up register form script end............
+
+    $(function () {
+      // Click on category surface-card or view button
+      $('.surface-main-card, .surface-main-card .surface-main-card-button').click(function (e) {
+        e.stopPropagation(); // Prevent double trigger
+        const category = $(this).closest('.surface-main-card').data('category');
+
+        // Hide home view, show selected paintings
+        $('#categoriesView').hide();
+        $(`#${category}-paintings`).fadeIn();
+        $('#backBtn').fadeIn();
+      });
+
+      // Back button
+      $('#backBtn').click(function () {
+        $('.paintings-grid').hide();
+        $('#categoriesView').fadeIn();
+        $(this).hide();
+
+      });
+    });
+
+    // <!-- /* .................footer section end..................... */ -->
+    $('#footersubscribeBtn').click(function () {
+      let subscribe = $('#subscribeInput').val();
+      if (subscribe === '') {
+        alert('Please enter your email!');
+      }
+      else {
+        alert('Thanks for subscribing!');
+        $('#subscribeInput').val(''); // input clear kar de
+      }
+    });
+
+    // <!-- /* .................footer section end..................... */ -->
+
+
+
+  </script>
+</body>
+
+</html>

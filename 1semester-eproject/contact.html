@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleria - Contact Us</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="fontawesome-free-7.0.1-web/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* .................navbar styling..................... */
+
+        .navbar {
+            background-color: #1e1e1e;
+            height: 100px;
+        }
+
+        .navbar-brand .logo-img {
+            width: 140px;
+            height: 100px
+        }
+
+        .navbar-nav {
+            gap: 30px;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: 0.3s;
+            font-size: 1.2rem;
+            color: #f5f5f5 !important;
+            font-weight: bold;
+        }
+
+
+        .navbar-container {
+            background-color: #1e1e1e !important;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: .5rem;
+            bottom: -.5px;
+            width: 0%;
+            height: 3px;
+            background: #1B4965;
+            transition: 0.4s ease-in-out;
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            color: #1B4965 !important;
+        }
+
+        .btn-signup {
+            background-color: #1B4965;
+            color: #f5f5f5;
+            border: none;
+            width: 150px;
+            height: 40px;
+            padding: 8px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-signup:hover {
+            background-color: #FF8C42;
+            color: #121212;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,140,66,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+
+        /* Dropdown Styles */
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-menu {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 10px 0;
+            background-color: #121212;
+            border: 1px solid #1B4965;
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            transition: background-color 0.2s ease;
+            color: #f5f5f5;
+        }
+
+        .dropdown-item:hover {
+            background-color: #1B4965;
+            color: #f5f5f5;
+        }
+
+        .navbar-collapse .mobile-search {
+            display: none;
+        }
+
+        /* LEFT SLIDE MOBILE NAVBAR */
+        @media (max-width: 991px) {
+            .navbar-brand .logo-img {
+                width: 100px;
+                height: 50px
+            }
+
+            .navbar-collapse {
+                position: fixed;
+                top: 100px;
+                left: -100%;
+                width: 280px;
+                height: 100vh;
+                background: #121212;
+                padding: 50px 20px 20px;
+                transition: 0.4s ease-in-out;
+            }
+
+            .navbar-collapse.show {
+                left: 0;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+            }
+
+            .navbar-collapse .nav-link {
+                display: inline-block;
+                padding-bottom: 6px;
+            }
+
+            .navbar-collapse .nav-link::after {
+                left: 0;
+                bottom: 0;
+                width: 0%;
+            }
+
+            .navbar-collapse .nav-link:hover::after {
+                width: 100%;
+            }
+
+            .nav-buttons {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+            }
+        }
+
+        /* .................navbar styling end..................... */
+
+                /* .............register sign up form start................... */
+        .register-form-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 9999;
+        }
+
+
+        .sign-up-form {
+            display: flex;
+            justify-content: center;
+        }
+
+        .sign-up {
+            position: relative;
+            /* for close button */
+            margin-top: 100px;
+            text-align: center;
+            padding: 15px 30px;
+            width: 100%;
+            border-radius: 10px;
+            height: auto;
+            border: none;
+            background-color: #fff;
+        }
+
+        .register-form-main-head {
+            text-transform: capitalize;
+            font-weight: bold;
+            color: #1b4965;
+        }
+
+        .sign-up p {
+            text-transform: capitalize;
+            font-weight: 500;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .forget-password {
+            color: #ff8c42;
+        }
+
+        .forget-password:hover {
+            color: #1b4965;
+        }
+
+        .register-sign-up-form-input {
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            margin: 30px 10px;
+        }
+
+        .register-sign-in-form-input {
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            margin: 20px 10px;
+
+        }
+
+        .form-control::placeholder {
+            text-align: left;
+            text-transform: capitalize;
+        }
+
+        .register-btn,
+        .register-sign-in-btn {
+            text-decoration: none;
+            text-transform: capitalize;
+            background-color: #1b4965;
+            width: 100%;
+            color: white;
+            margin: 30px auto;
+        }
+
+        .register-btn:hover,
+        .register-sign-in-btn:hover {
+            text-decoration: none;
+            text-transform: capitalize;
+            background-color: #ff8c42;
+            width: 100%;
+            color: white;
+            margin: 30px auto;
+        }
+
+        .sign-in-link a {
+            color: #ff8c42;
+            text-decoration: none;
+        }
+
+        .sign-in-link a:hover {
+            color: #1b4965;
+        }
+
+        .sign-in-form {
+            position: relative;
+            top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sign-up .register-sign-up-btn {
+            text-decoration: none;
+            margin-left: 5px;
+            text-transform: capitalize;
+            font-weight: 500;
+            color: #ff8c42;
+        }
+
+        .sign-up .register-sign-up-btn:hover {
+            color: #1b4965;
+        }
+
+        /* Cross button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: #198754;
+        }
+
+        .close-btn:hover {
+            color: red;
+        }
+        /* .............register sign up form end................... */
+
+        /* <!-- ...............................Contact section start........................ --> */
+
+        .contact-section{
+            margin: 150px auto;
+        }
+
+        .contact-main-container {
+            margin: 20px auto;
+            width: 90%;
+        }
+
+        .contact-main-container .section-title {
+            margin: 50px auto;
+            color: #1B4965;
+            font-size: 2.2rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .contact-form-container {
+            background-color: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(27, 73, 101, 0.08);
+            border: 2px solid rgba(27, 73, 101, 0.1);
+        }
+
+        .contact-map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            height: 500px;
+            box-shadow: 0 5px 20px rgba(27, 73, 101, 0.1);
+            margin: 20px auto 150px auto;
+            border: 2px solid rgba(27, 73, 101, 0.1);
+        }
+
+        .contact-map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .contact-form-main-container {
+            width: 90%;
+            margin: 50px auto;
+        }
+
+        .contact-form-container .section-title {
+            margin: 40px auto;
+            color: #1B4965;
+            font-size: 2.2rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .contact-form-sub-container {
+            margin: 20px auto;
+        }
+
+        .contact-form-container .form-label {
+            font-weight: 600;
+            color: #1B4965;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .form-control,
+        .form-select {
+            border: 2px solid rgba(27, 73, 101, 0.3);
+            border-radius: 10px;
+            padding: 12px 15px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #FF8C42;
+            box-shadow: 0 0 0 0.2rem rgba(255, 140, 66, 0.15);
+        }
+
+        .submit-btn {
+            background: #1B4965;
+            color: #f5f5f5;
+            padding: 15px 50px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #FF8C42;
+            color: #121212;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 140, 66, 0.4);
+        }
+
+        .contact-info-main-container {
+            margin: 85px auto;
+        }
+
+        .contact-info-main-container .section-title {
+            margin: 40px auto;
+            color: #1B4965;
+            font-size: 2.2rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .contact-info-main-container .section-subtitle {
+            color: rgba(27, 73, 101, 0.7);
+            text-align: center;
+            margin: 40px auto;
+            font-size: 1.1rem;
+        }
+
+        .contact-info-list {
+            margin-top: 30px;
+        }
+
+        .contact-info-item {
+            display: flex;
+            gap: 20px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(27, 73, 101, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(27, 73, 101, 0.1);
+        }
+
+        .contact-info-item:hover {
+            background: rgba(27, 73, 101, 0.1);
+            transform: translateX(5px);
+            border-color: #FF8C42;
+        }
+
+        .contact-info-icon {
+            width: 50px;
+            height: 50px;
+            background: #1B4965;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f5f5f5;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info-item:hover .contact-info-icon {
+            background: #FF8C42;
+        }
+
+        .contact-info-content h4 {
+            font-size: 1.1rem;
+            color: #1B4965;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .contact-info-content p {
+            color: rgba(27, 73, 101, 0.8);
+            font-size: 0.95rem;
+        }
+
+        .contact-info-content a {
+            color: #1B4965;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info-content a:hover {
+            color: #FF8C42;
+        }
+
+        .contact-faq-section {
+            margin: 70px auto;
+            max-width: 80%;
+        }
+
+        .faq-main-heading-container .section-title {
+            margin: 70px auto;
+            color: #1B4965;
+            font-size: 2.2rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .accordion-button {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1B4965;
+            background-color: rgba(27, 73, 101, 0.05);
+            border: 1px solid rgba(27, 73, 101, 0.1);
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: #1B4965;
+            color: #f5f5f5;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: #FF8C42;
+            background-color: #1B4965;
+            color: #f5f5f5;
+        }
+
+        .accordion-body {
+            color: #1B4965;
+            background-color: rgba(27, 73, 101, 0.03);
+        }
+
+        /* <!-- ...............................Contact section end........................ -->. */
+
+        /* .........................Footer section start............................ */
+        footer {
+            background: #121212;
+            padding: 80px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 3fr 2fr 6fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        .footer-about h3 {
+            font-size: 2rem;
+            color: #1B4965;
+            margin-bottom: 20px;
+        }
+
+        .footer-about p {
+            margin-bottom: 30px;
+            color: #f5f5f5;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 140, 66, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1B4965;
+            text-decoration: none;
+            transition: all 0.5s ease;
+        }
+
+        .social-link:hover {
+            background: #FF8C42;
+            color: #121212;
+            transform: translateY(-10px);
+        }
+
+        .footer-links h4 {
+            margin-left: 30px;
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 1.3rem;
+            color: #1B4965;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after,
+        .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #FF8C42;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li a i {
+            color: #FF8C42;
+        }
+
+        .footer-links ul li a:hover {
+            color: #1B4965;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #f5f5f5;
+            text-decoration: none;
+            transition: all 1s ease;
+            display: flex;
+            align-items: center;
+            line-height: 40px;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: #FF8C42;
+            transform: translateX(10px);
+        }
+
+
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 25px 0;
+            text-align: center;
+            color: #f5f5f5;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-contact p {
+            color: #f5f5f5;
+        }
+
+        .footer-contact .input {
+            width: 80%;
+            height: 40px;
+            border-radius: 10px;
+            padding: 10px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #f5f5f5;
+        }
+
+        .footer-contact .input::placeholder {
+            color: rgba(245, 245, 245, 0.7);
+        }
+
+        .subscribe-box {
+            display: flex;
+            gap: 20px;
+        }
+
+        .subscribe-box #footersubscribeBtn {
+            padding: 0 10px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #1B4965;
+            border-radius: 10px;
+            color: #f5f5f5;
+            transition: all 0.3s ease;
+        }
+
+        .subscribe-box #footersubscribeBtn:hover {
+            background-color: #FF8C42;
+            color: #121212;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width:768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* .............................footer section end..................... */
+
+        @media (max-width:992px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                margin-left: 20px;
+            }
+        }
+
+        @media (max-width:768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* .............................footer section end..................... */
+
+        /* Responsive adjustments */
+        @media (max-width: 576px) {
+
+            .contact-main-container .section-title,
+            .contact-form-container .section-title,
+            .contact-info-main-container .section-title,
+            .faq-main-heading-container .section-title {
+                font-size: 1.8rem;
+            }
+
+            .contact-map-container {
+                height: 300px;
+                margin: 20px auto 80px auto;
+            }
+
+            .contact-form-container {
+                padding: 20px;
+            }
+
+            .contact-info-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            .submit-btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+
+    <!-- /* .................navbar section start..................... */ -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container-fluid navbar-container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#home">
+                <img src="images/navbar-logo-original.png" class="logo-img" alt="">
+            </a>
+
+            <!-- Toggler Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" b>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Content -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- Links -->
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button">Paintings</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="surface.html">Surface</a></li>
+                            <li><a class="dropdown-item" href="paintings.html">Color Type</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#product-section">products</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+
+                <!-- Buttons -->
+                <div class="nav-buttons">
+                    <button class="btn btn-signup" onclick="openSignup()">Sign Up</button>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- /* .................navbar section end..................... */ -->
+
+    <!-- .....................sign-up and register form start.......,.......... -->
+         <!-- Sign Up Form -->
+    <section class="register-form-section">
+        <div id="sign-up" class="container sign-up-form">
+            <div class="col-md-6 col-lg-4 col-10">
+                <div class="sign-up">
+                    <span class="close-btn">&times;</span>
+                    <h1 class="register-form-main-head">Galleria</h1>
+                    <p>create your account</p>
+                    <input type="text" id="signup-name" class="form-control register-sign-up-form-input"
+                        placeholder="full name">
+                    <input type="text" id="signup-email" class="form-control register-sign-up-form-input"
+                        placeholder="email">
+                    <input type="password" id="signup-pass" class="form-control register-sign-up-form-input"
+                        placeholder="password">
+                    <input type="password" id="signup-cpass" class="form-control register-sign-up-form-input"
+                        placeholder="confirm password">
+                    <div id="register-btn" class="reg-btn btn register-btn">register
+                    </div>
+                    <p class="sign-in-link">already have an account? <a href="" id="open-sign-in">sign in</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign In Form -->
+        <div id="sign-in" class="container  sign-in-form  d-none">
+            <div class="col-md-6 col-lg-4 col-10">
+                <div id="log" class="sign-up">
+                    <span class="close-btn">&times;</span>
+                    <h1 class="register-form-main-head">Galleria</h1>
+                    <p>Great to have you back.</p>
+                    <input type="text" id="signin-email" class="form-control register-sign-in-form-input"
+                        placeholder="email">
+                    <input type="password" id="signin-pass" class="form-control register-sign-in-form-input"
+                        placeholder="password">
+                    <a href="" class="forget-password">forgot password?</a>
+                    <div class="reg-btn btn register-sign-in-btn">sign in</div>
+                    <p>don't have an account? <a href="" class="register-sign-up-btn" id="open-sign-up"> sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- .....................sign-up and register form end.......,.......... -->
+
+    <!-- ...............................Contact section start........................ -->
+    <section class="contact-section">
+        <div class="contact-main-container">
+            <h2 class="section-title">Find Us On The Map</h2>
+            <div class="contact-map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462565.91124857265!2d67.15546244999999!3d25.193202349999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e06651d4bbf%3A0x9cf92f44555a0c23!2sKarachi%2C%20Karachi%20City%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2s!4v1234567890"
+                    allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+
+
+        <div class="contact-form-main-container">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="contact-form-container">
+                        <h2 class="section-title">Send Us A Message</h2>
+                        <form class="contact-form">
+                            <div class="contact-form-sub-container">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter your name"
+                                    required>
+                            </div>
+                            <div class="contact-form-sub-container">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email"
+                                    required>
+                            </div>
+                            <div class="contact-form-sub-container">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone">
+                            </div>
+                            <div class="contact-form-sub-container">
+                                <label for="subject" class="form-label">Subject</label>
+                                <select class="form-select" id="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="custom">Custom Order</option>
+                                    <option value="order">Order Status</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="contact-form-sub-container">
+                                <label for="message" class="form-label">Your Message</label>
+                                <textarea class="form-control" id="message" rows="5"
+                                    placeholder="Write your message here..." required></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="submit-btn">
+                                    <i class="fas fa-paper-plane me-2"></i> Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-info-main-container">
+                        <h2 class="section-title">Get In Touch</h2>
+                        <p class="section-subtitle">We're here to help and answer any questions you might have</p>
+                        <div class="contact-info-list">
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-info-content">
+                                    <h4>Our Location</h4>
+                                    <p>Sharah-e-Faisal, Karachi<br>Sindh, Pakistan</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-info-content">
+                                    <h4>Phone Number</h4>
+                                    <p>+92 300 1234567<br>08000-1973</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-info-content">
+                                    <h4>Email Address</h4>
+                                    <p>info@galleria.com<br>support@galleria.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-info-content">
+                                    <h4>Business Hours</h4>
+                                    <p>Monday - Saturday: 9:00 AM - 6:00 PM<br>Sunday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="contact-faq-section">
+                <div class="faq-main-heading-container">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                </div>
+                <div class="accordion" id="faqAccordion">
+                    <div class="faq-container">
+                        <div class="faq-ques-container">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq1">
+                                What types of paints does Galleria offer?
+                            </button>
+                        </div>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Galleria offers a complete range of paints including acrylic, oil, watercolor, charcoal,
+                                and decorative wall paints for different needs.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-container">
+                        <div class="faq-ques-container">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq2">
+                                Are Galleria paints suitable for professional artists and painters?
+                            </button>
+                        </div>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, our paints are made with high-quality materials and are suitable for beginners,
+                                professional artists, and commercial painters.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-container">
+                        <div class="faq-ques-container">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq3">
+                                Do you provide paints for home and commercial painting projects?
+                            </button>
+                        </div>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, we supply paints for home interiors, exterior walls, offices, and large commercial
+                                painting projects.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-container">
+                        <div class="faq-ques-container">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq4">
+                                Can I get help in choosing the right paint and color?
+                            </button>
+                        </div>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, our experienced team helps you select the right paint type, color, and finish
+                                according to your project requirements.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-container">
+                        <div class="faq-ques-container">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq5">
+                                Do you offer bulk or wholesale paint orders?
+                            </button>
+                        </div>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, Galleria provides special pricing and reliable supply for bulk and wholesale
+                                orders.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <!-- ...............................Contact section end........................ -->
+
+    <!-- ...............................Footer start........................ -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Galleria</h3>
+                    <p>Creating exceptional digital experiences with modern design and cutting-edge technology. Let's
+                        build something amazing together.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Usefull Links</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-user"></i> About us</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-code"></i> Gallery</a></li>
+                        <li><a href="paintings.html"><i class="fas fa-briefcase"></i>Paintings</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+                        <li><a href="signup.html"><i class="fas fa-envelope"></i>Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Subscribe Now</h4>
+                    <p>Promotions, new products and sales.Not Forget Subscribe Our Brand.</p>
+                    <div class="subscribe-box" style="display:flex; gap:10px;">
+                        <input type="text" placeholder="SUBSCRIBE TO OUR NEWS LETTER ->" id="subscribeInput"
+                            class="input">
+                        <button id="footersubscribeBtn">&#8594;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; Gallery Is First Choice For You: BEST.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- ...............................Footer end........................ -->
+
+
+    <script src="jquerydownload.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+
+         // ..................sign up register form script start............
+        $(document).ready(function () {
+
+                        // Navbar button click → show form
+            $(".btn-signup, #open-signup-btn").click(function (e) {
+                e.preventDefault();
+                $("#sign-up").closest(".register-form-section").fadeIn(300);
+            });
+
+            // Close button
+            $(".close-btn").click(function () {
+                $(this).closest(".register-form-section").fadeOut(300);
+            });
+
+            // Open Login
+            $("#open-sign-in").click(function (e) {
+                e.preventDefault();
+                $("#sign-up").fadeOut(300, function () {
+                    $("#sign-in").removeClass("d-none").fadeIn(300);
+                });
+            });
+
+            // Open Sign Up from Sign In
+            $("#open-sign-up").click(function (e) {
+                e.preventDefault();
+                $("#sign-in").fadeOut(300, function () {
+                    $("#sign-up").removeClass("d-none").fadeIn(300);
+                });
+            });
+
+            // Simple Sign Up Validation
+            $("#register-btn").click(function () {
+                let name = $("#signup-name").val();
+                let email = $("#signup-email").val();
+                let pass = $("#signup-pass").val();
+                let cpass = $("#signup-cpass").val();
+
+                if (name === "" || email === "" || pass === "" || cpass === "") {
+                    alert("All fields are required!");
+                    return;
+                }
+                if (pass !== cpass) {
+                    alert("Passwords do not match!");
+                    return;
+                }
+
+                alert("Registration Successful!");
+                $("#signup-name, #signup-email, #signup-pass, #signup-cpass").val('');
+                $("#sign-up").closest(".register-form-section").fadeOut(300);
+            });
+        });
+
+        // ..................sign up register form script end............
+
+        $('.contact-form').submit(function (e) {
+            e.preventDefault();
+            let name = $('#name').val();
+            let email = $('#email').val();
+            let subject = $('#subject').val();
+            let message = $('#message').val();
+            if (name == '' || email == '' || subject == '' || message == '') {
+                alert('Please fill all required fields!');
+                return false;
+            }
+            alert('Thank you ' + name + '! Your message has been sent successfully. We will contact you soon.');
+            $('.contact-form')[0].reset();
+        });
+
+        // <!-- /* .................footer section end..................... */ -->
+        $('#footersubscribeBtn').click(function () {
+            let subscribe = $('#subscribeInput').val();
+            if (subscribe === '') {
+                alert('Please enter your email!');
+            }
+            else {
+                alert('Thanks for subscribing!');
+                $('#subscribeInput').val(''); // input clear kar de
+            }
+        });
+
+        // <!-- /* .................footer section end..................... */ -->
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index-page</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="fontawesome-free-7.0.1-web/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+    </style>
+</head>
+
+<body>
+   <!-- /* .................navbar section start..................... */ -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container-fluid navbar-container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#home">
+                <img src="images/navbar-logo-original.png" class="logo-img" alt="">
+            </a>
+
+            <!-- Toggler Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" b>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Content -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- Links -->
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button">Paintings</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="surface.html">Surface</a></li>
+                            <li><a class="dropdown-item" href="paintings.html">Color Type</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#product-section">products</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+
+                <!-- Buttons -->
+                <div class="nav-buttons">
+                    <button class="btn btn-signup" onclick="openSignup()">Sign Up</button>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- /* .................navbar section end..................... */ -->
+         <!-- Sign Up Form -->
+    <section class="register-form-section">
+        <div id="sign-up" class="container sign-up-form">
+            <div class="col-md-6 col-lg-4 col-10">
+                <div class="sign-up">
+                    <span class="close-btn">&times;</span>
+                    <h1 class="register-form-main-head">Galleria</h1>
+                    <p>create your account</p>
+                    <input type="text" id="signup-name" class="form-control register-sign-up-form-input"
+                        placeholder="full name">
+                    <input type="text" id="signup-email" class="form-control register-sign-up-form-input"
+                        placeholder="email">
+                    <input type="password" id="signup-pass" class="form-control register-sign-up-form-input"
+                        placeholder="password">
+                    <input type="password" id="signup-cpass" class="form-control register-sign-up-form-input"
+                        placeholder="confirm password">
+                    <div id="register-btn" class="reg-btn btn register-btn">register
+                    </div>
+                    <p class="sign-in-link">already have an account? <a href="" id="open-sign-in">sign in</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign In Form -->
+        <div id="sign-in" class="container  sign-in-form  d-none">
+            <div class="col-md-6 col-lg-4 col-10">
+                <div id="log" class="sign-up">
+                    <span class="close-btn">&times;</span>
+                    <h1 class="register-form-main-head">Galleria</h1>
+                    <p>Great to have you back.</p>
+                    <input type="text" id="signin-email" class="form-control register-sign-in-form-input"
+                        placeholder="email">
+                    <input type="password" id="signin-pass" class="form-control register-sign-in-form-input"
+                        placeholder="password">
+                    <a href="" class="forget-password">forgot password?</a>
+                    <div class="reg-btn btn register-sign-in-btn">sign in</div>
+                    <p>don't have an account? <a href="" class="register-sign-up-btn" id="open-sign-up"> sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ...............................carousel start........................... -->
+    <!-- Carousel -->
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel"
+        data-bs-interval="1500">
+
+        <!-- Carousel inner -->
+        <div class="carousel-inner w-100">
+            <div class="carousel-item active w-100">
+                <img src="images/banner1.jfif" class="d-block w-100 img-fluid" alt="carousel image"
+                    style="height: 750px; top: 100px;">
+            </div>
+            <div class="carousel-item w-100">
+                <img src="images/bannner2.png" class="d-block w-100 img-fluid" alt="carousel image"
+                    style="height: 750px; top: 100px;">
+            </div>
+            <div class="carousel-item w-100">
+                <img src="images/banner3.webp" class="d-block w-100 img-fluid" alt="carousel image"
+                    style="height: 750px; top: 100px;">
+            </div>
+            <div class="carousel-item w-100">
+                <img src="images/banner 4.png" class="d-block w-100 img-fluid" alt="carousel image"
+                    style="height: 750px; top: 100px;">
+            </div>
+            <div class="carousel-item w-100">
+                <img src="images/banner 5.png" class="d-block w-100 img-fluid" alt="carousel image"
+                    style="height: 750px; top: 100px;">
+            </div>
+            <div class="carousel-item w-100">
+                <img src="images/banner 6.png" class="d-block w-100 img-fluid" alt="carousel image"
+                    style="height: 750px; top: 100px;">
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon p-4 bg-dark bg-opacity-75 rounded-circle" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon p-4 bg-dark bg-opacity-75 rounded-circle" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!-- ...............................end carousel........................... -->
+
+    <!-- ............................our-featured-of-products............................... -->
+    <section class="our-featured-products">
+        <div class=" featured-main-container container">
+            <h1 class="featured-head">Our Best Featured Products</h1>
+
+            <div class="featured-sub-container container">
+                <div class="row g-4">
+
+                    <!-- CARD 1 -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="featured-product-card card" id="f1">
+                            <div class="featured-product-item">
+                                <img src="images/Cielia.png" alt="Product 1"
+                                    class="featured-product-image featured-main-image">
+                                <img src="images/hover 13.jfif" alt="Product 1 Hover"
+                                    class="featured-product-image featured-hover-image">
+                                <div class="discount-badge">25% OFF</div>
+                                <div class="featured-add-to-cart-icon">
+                                    <i class="fa-solid fa-shopping-cart featured-cart-icon-btn" href="cart.html"></i>
+                                </div>
+                            </div>
+                            <div class="featured-product-info">
+                                <div class="featured-product-name">Ceilia Paints</div>
+                                <div class="featured-product-price"><span class="featured-product-offer-price">Rs:
+                                        15000</span> Rs: 1,500
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="featured-product-card card" id="f2">
+                            <div class="featured-product-item">
+                                <img src="images/Ferra Coat.png" alt="Product 2"
+                                    class="featured-product-image featured-main-image">
+                                <img src="images/hover 23.webp" alt="Product 2 Hover"
+                                    class="featured-product-image featured-hover-image">
+                                <div class="discount-badge">25% OFF</div>
+                                <div class="featured-add-to-cart-icon">
+                                    <i class="fa-solid fa-shopping-cart featured-cart-icon-btn" href="cart.html"></i>
+                                </div>
+                            </div>
+                            <div class="featured-product-info">
+                                <div class="featured-product-name">Ferra Coat</div>
+                                <div class="featured-product-price"><span class="featured-product-offer-price">Rs:
+                                        15000</span> Rs: 800</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="featured-product-card card" id="f3">
+                            <div class="featured-product-item">
+                                <img src="images/Primary Volx.png" alt="Product 3"
+                                    class="featured-product-image featured-main-image">
+                                <img src="images/hover 7.jfif" alt="Product 3 Hover"
+                                    class="featured-product-image featured-hover-image">
+                                <div class="discount-badge">25% OFF</div>
+                                <div class="featured-add-to-cart-icon">
+                                    <i class="fa-solid fa-shopping-cart featured-cart-icon-btn" href="cart.html"></i>
+                                </div>
+                            </div>
+                            <div class="featured-product-info">
+                                <div class="featured-product-name">Primary Volx</div>
+                                <div class="featured-product-price"><span class="featured-product-offer-price">Rs:
+                                        15000</span> Rs: 2,000
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 4 -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="featured-product-card card" id="f4">
+                            <div class="featured-product-item">
+                                <img src="images/Sky vera coat.png" alt="Product 4"
+                                    class="featured-product-image featured-main-image">
+                                <img src="images/hover 14 (2).jfif" alt="Product 4 Hover"
+                                    class="featured-product-image featured-hover-image">
+                                <div class="discount-badge">25% OFF</div>
+                                <div class="featured-add-to-cart-icon">
+                                    <i class="fa-solid fa-shopping-cart featured-cart-icon-btn" href="cart.html"></i>
+                                </div>
+                            </div>
+                            <div class="featured-product-info">
+                                <div class="featured-product-name">Sky Vera Coat</div>
+                                <div class="featured-product-price"><span class="featured-product-offer-price">Rs:
+                                        15000</span> Rs: 3,500
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="featured-discount-banner">
+            <img src="images/wallpaint.jfif" alt="">
+            <img src="images/abhi abhi 2.jfif" alt="">
+            <img src="images/wallpaint.jfif" alt="">
+        </div>
+    </section>
+    <!-- ............................our-featured-of-products-end............................... -->
+
+
+    <!-- ........................product area start................................ -->
+    <section class="products-section" id="product-section">
+        <h1 class="product-head">Our Best Selling paints Products</h1>
+        <p class="product-para">Buy premium quality paint products for your interior and exterior at economical
+            prices. Book your orders Now!</p>
+        <div class="tabs">
+            <!-- Tab Buttons -->
+            <input type="radio" name="tab" id="t1" checked>
+            <label for="t1">Interior</label>
+
+            <input type="radio" name="tab" id="t2">
+            <label for="t2">Exterior</label>
+
+            <input type="radio" name="tab" id="t3">
+            <label for="t3">Luxury Coatings</label>
+
+            <input type="radio" name="tab" id="t4">
+            <label for="t4">Metal Surfaces</label>
+
+            <input type="radio" name="tab" id="t5">
+            <label for="t5">Primers & Undercoats</label>
+
+            <input type="radio" name="tab" id="t6">
+            <label for="t6">Roofing & Waterproofing</label>
+
+            <input type="radio" name="tab" id="t7">
+            <label for="t7">Ceiling & Roof Coatings</label>
+
+            <!-- Tab Content -->
+            <div class="content" id="c1">
+                <div class="row products-cards-container">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="1">
+                            <img src="images/Anti Corrosion.png" alt="" class="product-real-image">
+                            <img src="images/hover 1.webp" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Anti Corrosion</h1>
+                            <p>Rs:<span id="product-rupees">20,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="2">
+                            <img src="images/Hydro Shield.webp" alt="" class="product-real-image">
+                            <img src="images/hover 2.webp" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Hydro Shield Range</h1>
+                            <p>Rs:<span id="product-rupees">22,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="3">
+                            <img src="images/Aqua Primary.png" alt="" class="product-real-image">
+                            <img src="images/hover 3.webp" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Aqua Primary</h1>
+                            <p>Rs:<span id="product-rupees">25,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="4">
+                            <img src="images/Base Prime System.png" alt="" class="product-real-image">
+                            <img src="images/hover 20.jpg" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Base Prime System</h1>
+                            <p>Rs:<span id="product-rupees">18,000.00</span></p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="content" id="c2">
+                <div class="row products-cards-container">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="11">
+                            <img src="images/Silk Smooth Coating.png" alt="" class="product-real-image">
+                            <img src="images/hover 14.jfif" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Silk Smooth Coating</h1>
+                            <p>Rs:<span id="product-rupees">19,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="12">
+                            <img src="images/Pearl Sheen.png" alt="" class="product-real-image">
+                            <img src="images/hover 16.jfif" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Pearl Sheen</h1>
+                            <p>Rs:<span id="product-rupees">18,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="13">
+                            <img src="images/Metal Shield Pro.png" alt="" class="product-real-image">
+                            <img src="images/hover 19.webp" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Sunproof Coating</h1>
+                            <p>Rs:<span id="product-rupees">20,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="14">
+                            <img src="images/Matte Sealer.png" alt="" class="product-real-image">
+                            <img src="images/hover 5.webp" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Matte Sealer</h1>
+                            <p>Rs:<span id="product-rupees">15,000.00</span></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="content" id="c3">
+                <div class="row products-cards-container">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="21">
+                            <img src="images/Iron Max Finishes.png" alt="" class="product-real-image">
+                            <img src="images/hover 10.webp" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Iron Max Finishes</h1>
+                            <p>Rs:<span id="product-rupees">18,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="22">
+                            <img src="images/Premium Satin.png" alt="" class="product-real-image">
+                            <img src="images/hover 23.webp" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Premium Satin</h1>
+                            <p>Rs:<span id="product-rupees">13,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="23">
+                            <img src="images/Primer Coat Essential.png" alt="" class="product-real-image">
+                            <img src="images/hover 21.webp" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Primer Coat Essential</h1>
+                            <p>Rs:<span id="product-rupees">14,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="24">
+                            <img src="images/Rust Free Primer.png" alt="" class="product-real-image">
+                            <img src="images/hover 14.jfif" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Rust Free Primer</h1>
+                            <p>Rs:<span id="product-rupees">14,500.00</span></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="content" id="c4">
+                <div class="row products-cards-container">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="31">
+                            <img src="images/Sky Coat.webp" alt="" class="product-real-image">
+                            <img src="images/hover 14 (2).jfif" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Sky Coat</h1>
+                            <p>Rs:<span id="product-rupees">49,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="32">
+                            <img src="images/Foundation Premier.webp" alt="" class="product-real-image">
+                            <img src="images/hover 11 (2).jfif" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Foundation Premier</h1>
+                            <p>Rs:<span id="product-rupees">21,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="33">
+                            <img src="images/Ultra Durable Emulsion.png" alt="" class="product-real-image">
+                            <img src="images/wallpaint.jfif" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Ultra Durable Emulsion</h1>
+                            <p>Rs:<span id="product-rupees">14,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="34">
+                            <img src="images/Sun Proof Coating.png" alt="" class="product-real-image">
+                            <img src="images/hover aluminium 2.jfif" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Sun Proof Coating</h1>
+                            <p>Rs:<span id="product-rupees">22,000.00</span></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="content" id="c5">
+                <div class="row products-cards-container">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="41">
+                            <img src="images/Steel Guard Coating.png" alt="" class="product-real-image">
+                            <img src="images/hover 17.jpg" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Steel Guard Coating</h1>
+                            <p>Rs:<span id="product-rupees">21,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="42">
+                            <img src="images/Velvet Touch.png" alt="" class="product-real-image">
+                            <img src="images/hover 24.jpg" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Velvet Touch</h1>
+                            <p>Rs:<span id="product-rupees">15,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="43">
+                            <img src="images/Weather Shield.png" alt="" class="product-real-image">
+                            <img src="images/hover 24.webp" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Weather Shield</h1>
+                            <p>Rs:<span id="product-rupees">18,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="44">
+                            <img src="images/Roof Seal.webp" alt="" class="product-real-image">
+                            <img src="images/hover 22.jpg" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Roof Seal</h1>
+                            <p>Rs:<span id="product-rupees">15,000.00</span></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="content" id="c6">
+                <div class="row products-cards-container">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="51">
+                            <img src="images/Aqua Block.webp" alt="" class="product-real-image">
+                            <img src="images/hover aluminium.jfif" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Aqua Block</h1>
+                            <p>Rs:<span id="product-rupees">17,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="52">
+                            <img src="images/Matt Finish.png" alt="" class="product-real-image">
+                            <img src="images/hover alumnium 3.webp" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Matt Finish</h1>
+                            <p>Rs:<span id="product-rupees">16,500.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="53">
+                            <img src="images/Cool Onix.png" alt="" class="product-real-image">
+                            <img src="images/hover 13.jfif" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Hydro Shield Range</h1>
+                            <p>Rs:<span id="product-rupees">18,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="54">
+                            <img src="images/Top Crest.png" alt="" class="product-real-image">
+                            <img src="images/hover 9.jfif" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Under Seal Pro</h1>
+                            <p>Rs:<span id="product-rupees">12,000.00</span></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="content" id="c7">
+                <div class="row products-cards-container">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="61">
+                            <img src="images/Ciel Aura.png" alt="" class="product-real-image">
+                            <img src="images/hover 6.jfif" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Sky Coat Finishes</h1>
+                            <p>Rs:<span id="product-rupees">8,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="62">
+                            <img src="images/Hydro Flex.png" alt="" class="product-real-image">
+                            <img src="images/hover 1.webp" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Cool Roof Coatings</h1>
+                            <p>Rs:<span id="product-rupees">10,000.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="63">
+                            <img src="images/Storm Guard.png" alt="" class="product-real-image">
+                            <img src="images/hover 8.jfif" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Ultra Ceil Systems</h1>
+                            <p>Rs:<span id="product-rupees">11,500.00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-card" id="64">
+                            <img src="images/Aqua Tite.png" alt="" class="product-real-image">
+                            <img src="images/hover 21.webp" alt="" class="product-hover-image">
+                            <div class="product-add-to-cart-icon">
+                                <i class="fa-solid fa-shopping-cart product-cart-icon-btn" href="cart.html"></i>
+                            </div>
+                        </div>
+                        <div class="card-dis">
+                            <h1>Top Shield Ceiling</h1>
+                            <p>Rs:<span id="product-rupees">14,000.00</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ........................product area end................................ -->
+
+
+    <!-- ......................detail page and add to cart section start................. -->
+    <section class="detail-section">
+        <div id="detailPage" class="detail-page container-fluid">
+            <div class="close-detail-btn-div">
+                <button id="closeDetail" class="close-detail-btn">&times;</button>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 col-12 text-center mb-4">
+                    <img id="detailImg" class="img-fluid">
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="detail-wrapper">
+                        <h1 id="detailName"></h1>
+                        <p id="detail-para"></p>
+                        <h3>Features</h3>
+                        <ul class="detail-features-list"></ul>
+                        <p class="detail-price">price: <span id="detailPrice"></span></p>
+                        <button id="detailbuynow" class="detail-btn" data-bs-toggle="modal"
+                            data-bs-target="#buyNowModal">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ......................detail page and add to cart section end complete................. -->
+
+    <!-- /* ...............buy now form start.................................. */ -->
+    <div class="modal fade" id="buyNowModal" tabindex="-999">
+        <div class="modal-dialog modal-fullscreen-lg-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-heading">Order Now</h2>
+                    <button type="button" class="btn-close modal-close-btn" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Buy Now Form -->
+                    <form id="buyNowForm">
+                        <div class="modal-items">
+                            <label for="name" class="modal-label">Full Name :</label>
+                            <input type="text" class="form-control modal-input" id="name" required>
+                        </div>
+
+                        <div class="modal-items">
+                            <label for="email" class="modal-label">Email :</label>
+                            <input type="email" class="form-control modal-input" id="email" required>
+                        </div>
+
+                        <div class="modal-items">
+                            <label for="phone" class="modal-label">Phone :</label>
+                            <input type="number" class="form-control modal-input" id="phone" required>
+                        </div>
+
+                        <div class="modal-items">
+                            <label for="address" class="modal-label">Address :</label>
+                            <textarea class="form-control modal-address-input" id="address" rows="3"
+                                required></textarea>
+                        </div>
+
+                        <div class="modal-items">
+                            <label for="painting" class="modal-label">Order Notes :</label>
+                            <input type="text" class="form-control modal-input" id="ordernotes" required>
+                        </div>
+
+                        <div class="modal-items">
+                            <label for="painting" class="modal-label">City :</label>
+                            <input type="text" class="form-control modal-input" id="city" required>
+                        </div>
+
+                        <div class="detail-quantity-area my-5">
+                            <label for="quantity" class="modal-label">Quantity :</label>
+                            <input type="number" class="form-control modal-input" value="1" min="1" required>
+                        </div>
+
+                        <button type="submit" class="btn  modal-order-btn">Place Order</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /* ...............buy now form end.................................. */ -->
+
+    <!-- ........................testimonial section start................................ -->
+    <section class="testimonials-section">
+        <div class="row testimonials-container">
+            <h1>Testimonial's Section</h1>
+            <div class="col-lg-6 testimonials-items">
+                <!-- .............................1st testimonial................... -->
+                <div class="testimonials-review-item active">
+                    <div class="testimonials-avatar-container">
+                        <div class="testimonials-avatar">A</div>
+                        <div>
+                            <div class="testimonials-name">Ahmed Khan</div>
+                            <div class="testimonials-date">2 weeks ago</div>
+                        </div>
+                    </div>
+                    <div class="testimonials-stars">★ ★ ★ ★ ★</div>
+                    <div class="testimonials-text">Galleria Paints truly exceeded my expectations. The coverage was
+                        impressive, the finish was smooth, and the overall look of my room completely transformed. The
+                        quality is top-notch and the delivery was right on time. I’m fully satisfied and will definitely
+                        choose this brand again.</div>
+                </div>
+                <!-- .............................2nd testimonial................... -->
+
+                <div class="testimonials-review-item">
+                    <div class="testimonials-avatar-container">
+                        <div class="testimonials-avatar">S</div>
+                        <div>
+                            <div class="testimonials-name">Sameer Aftab</div>
+                            <div class="testimonials-date">1 month ago</div>
+                        </div>
+                    </div>
+                    <div class="testimonials-stars">★ ★ ★ ★ ☆</div>
+                    <div class="testimonials-text">This was my first time trying Galleria Paints, and the results were
+                        amazing. The color came out exactly as shown in the sample, the smell was low, and it dried much
+                        faster than other paints I’ve used. It was easy to apply and my whole family loved the final
+                        look. Highly recommended</div>
+                </div>
+                <!-- .............................3rd testimonial................... -->
+
+                <div class="testimonials-review-item">
+                    <div class="testimonials-avatar-container">
+                        <div class="testimonials-avatar">H</div>
+                        <div>
+                            <div class="testimonials-name">Hassan Malik</div>
+                            <div class="testimonials-date">1 month ago</div>
+                        </div>
+                    </div>
+                    <div class="testimonials-stars">★ ★ ★ ☆ ☆</div>
+                    <div class="testimonials-text">I had a great experience using this paint. It spreads evenly, doesn’t
+                        leave marks, and the final shine looks premium. Customer support was also very helpful in
+                        guiding me with color selection. I’m very happy with the outcome and will surely recommend it to
+                        others.</div>
+                </div>
+                <!-- .............................4th testimonial................... -->
+
+                <div class="testimonials-review-item">
+                    <div class="testimonials-avatar-container">
+                        <div class="testimonials-avatar">R</div>
+                        <div>
+                            <div class="testimonials-name">Rahil Ahmad</div>
+                            <div class="testimonials-date">1 month ago</div>
+                        </div>
+                    </div>
+                    <div class="testimonials-stars">★ ★ ★ ☆ ☆</div>
+                    <div class="testimonials-text">The quality of Galleria Paints really stands out. One coat was enough
+                        to cover the walls smoothly, and the durability is impressive. The color looks vibrant even in
+                        different lighting. It definitely gave my home a fresh and modern feel. Totally worth it!.</div>
+                </div>
+
+                <!-- .............................5th testimonial................... -->
+
+                <div class="testimonials-review-item">
+                    <div class="testimonials-avatar-container">
+                        <div class="testimonials-avatar">K</div>
+                        <div>
+                            <div class="testimonials-name">Khalid Qureshi</div>
+                            <div class="testimonials-date">1 month ago</div>
+                        </div>
+                    </div>
+                    <div class="testimonials-stars">★ ★ ★ ☆ ☆</div>
+                    <div class="testimonials-text">I’m extremely pleased with the results. The paint applies smoothly
+                        and looks professional even when done at home. No dripping, no uneven patches — just a clean,
+                        elegant finish. This is easily one of the best paint brands I’ve used so far.</div>
+                </div>
+
+                <div class="testimonials-buttons">
+                    <button class="testimonials-btn-num" id="testimonials-prevBtn">←</button>
+                    <button class="testimonials-btn-num" id="testimonials-nextBtn">→</button>
+                </div>
+            </div>
+
+            <div class="col-lg-6 testimoials-image-box">
+                <img class="active" src="images/customer4.jfif" alt="Ahmed Khan">
+                <img src="images/customer2.jpg" alt="Sameer Aftab">
+                <img src="images/customer3.jfif" alt="Hassan Malik">
+                <img src="images/customer1.jpg" alt="Rahil Ahmad">
+                <img src="images/customer5.jfif" alt="Khalid Qureshi">
+            </div>
+        </div>
+    </section>
+    <!-- ........................testimonial end................................ -->
+
+
+    <!-- /* .........................history-section-start.............. */ -->
+    <section class="container galleria-history-section">
+        <div class="galleria-history-area">
+            <h1 class="galleria-history-main-head">Galleria Paints: A Trusted Choice for Your Home</h1>
+
+            <p class="galleria-history-short-text">
+                Finding the right paints for your homes is a true blessing but also, that is very hard to do so.Galleria
+                paints however makes it super easy and convenient for you to do so.Galleria Paint Product is very
+                responsible for every person and galleria paints is make a proffesionally chemicalls and pains are very
+                delicious. At Galleria you will find a huge diversity of shades and types of paints that you can use
+                both indoors and outdoors.
+            </p>
+
+            <div class="galleria-history-full-text">
+                <p class="galleria-history-full-para">
+                    Not only the most versatile and economical series of paints but also the finest quality that there
+                    is. Galleria Paints has become an organisation that aims to provide clients with only the best
+                    quality paints with the best results.
+                </p>
+
+                <h2 class="galleria-history-head">Galleria Paints: A Living Dream</h2>
+                <p class="galleria-history-full-para">
+                    When you find the right paint brand for your establishments, it becomes a living dream because you
+                    want your homes to look the most beautiful and appealing. Galleria always aims for your
+                    establishments to look ravishing and the most impressive and therefore only provides you with paints
+                    that have unmatchable quality. For decades Galleria has only struggled to make an abundance of good
+                    quality paints that are appropriate and ideal for every wall and every space. At Galleria you will
+                    find a huge diversity of shades and types of paints that you can use both indoors and outdoors.
+                </p>
+                <h2 class="galleria-history-head">Interior and Exterior Paints:</h2>
+                <p class="galleria-history-full-para">As mentioned earlier, the diversity at Galleria is unimaginable
+                    and unbelievable. You will find two
+                    separate types when it comes to interior paints and exterior paints. In both varieties, you are
+                    likely to find every colour and shade. Bright Paints is one of the leading Best Paints in Pakistan.
+                    Having received several awards for its commendable performance, Galleria has become the favourite of
+                    many. Your homes are precious and nobody else understands that better than us, therefore we make
+                    every possible effort for your home to look the way you want to with The Best Paint Company in
+                    Pakistan. Galleria is what introduced us to the truest meaning of fine paint. The concept behind a
+                    paint that makes your life super peaceful and appealing, is for Galleria that so many buildings and
+                    homes look beautiful today.
+                </p>
+                <h2 class="galleria-history-head">Galleria Paints and the Types of Paints:</h2>
+                <p class="galleria-history-full-para">
+                    When you come across the paint, probably colour is the only thing that comes to your mind. However,
+                    paint is just so much more than colour. Paint is the key to life and nature. Life without colours is
+                    indeed nothing but an epitome of boredom and dullness. Also, there is not just one kind of paint.
+                    There are so many kinds and all of them are super important for various purposes. Wall paints,
+                    metallic surface paints, powder coating paints and the list continues. You just have to name it and
+                    we deliver it to you. Galleria paints was founded decades ago and you can find all Galleria paints
+                    in
+                    different parts of the nation. You can also order your paints online by simply visiting the website.
+                    At our website you will come across so many options and so many shades that it’s actually
+                    overwhelming. Your faith in the paint industry will be restored. You will finally start trusting a
+                    brand with your homes. You can ace your orders there or you can simply talk to a representative in
+                    order to get some help regarding which paint to choose and go for.</p>
+            </div>
+
+            <button class="galleria-history-read-more-btn">READ MORE</button>
+        </div>
+    </section>
+    <!-- /* .........................history-section-end.............. */ -->
+    <!-- ...............................Footer start........................ -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Galleria</h3>
+                    <p>Creating exceptional digital experiences with modern design and cutting-edge technology. Let's
+                        build something amazing together.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Usefull Links</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-user"></i> About us</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-code"></i> Gallery</a></li>
+                        <li><a href="paintings.html"><i class="fas fa-briefcase"></i>Paintings</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+                        <li><a href="signup.html"><i class="fas fa-envelope"></i>Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Subscribe Now</h4>
+                    <p>Promotions, new products and sales.Not Forget Subscribe Our Brand.</p>
+                    <div class="subscribe-box" style="display:flex; gap:10px;">
+                        <input type="text" placeholder="SUBSCRIBE TO OUR NEWS LETTER ->" id="subscribeInput"
+                            class="input">
+                        <button id="footersubscribeBtn">&#8594;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container-fluid">
+                <p>&copy; Gallery Is First Choice For You: BEST.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- ...............................Footer end........................ -->
+
+    <script src="jquerydownload.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="fontawesome-free-7.0.1-web/css/all.min.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+        /* .........................Footer section start............................ */
+        footer {
+            background: #121212;
+            padding: 80px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 3fr 2fr 6fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        .footer-about h3 {
+            font-size: 2rem;
+            color: #1B4965;
+            margin-bottom: 20px;
+        }
+
+        .footer-about p {
+            margin-bottom: 30px;
+            color: #f5f5f5;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 140, 66, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1B4965;
+            text-decoration: none;
+            transition: all 0.5s ease;
+        }
+
+        .social-link:hover {
+            background: #FF8C42;
+            color: #121212;
+            transform: translateY(-10px);
+        }
+
+        .footer-links h4 {
+            margin-left: 30px;
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 1.3rem;
+            color: #1B4965;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after,
+        .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #FF8C42;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li a i {
+            color: #FF8C42;
+        }
+        .footer-links ul li a:hover {
+            color: #1B4965;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #f5f5f5;
+            text-decoration: none;
+            transition: all 1s ease;
+            display: flex;
+            align-items: center;
+            line-height: 40px;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: #FF8C42;
+            transform: translateX(10px);
+        }
+
+
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 25px 0;
+            text-align: center;
+            color: #f5f5f5;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-contact p {
+            color: #f5f5f5;
+        }
+
+        .footer-contact .input {
+            width: 80%;
+            height: 40px;
+            border-radius: 10px;
+            padding: 10px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #f5f5f5;
+        }
+
+        .footer-contact .input::placeholder {
+            color: rgba(245, 245, 245, 0.7);
+        }
+
+        .subscribe-box {
+            display: flex;
+            gap: 20px;
+        }
+
+        .subscribe-box #footersubscribeBtn {
+            padding: 0 10px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #1B4965;
+            border-radius: 10px;
+            color: #f5f5f5;
+            transition: all 0.3s ease;
+        }
+
+        .subscribe-box #footersubscribeBtn:hover {
+            background-color: #FF8C42;
+            color: #121212;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width:768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* .............................footer section end..................... */
+
+    @media (max-width:992px) {
+        .footer-content {
+            grid-template-columns: 1fr 1fr;
+            margin-left: 20px;
+        }
+    }
+
+    @media (max-width:768px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+        }
+    }
+    /* .............................footer section end..................... */
+</style>
+
+<body>
+
+ <!-- ...............................Footer start........................ -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Galleria</h3>
+                    <p>Creating exceptional digital experiences with modern design and cutting-edge technology. Let's
+                        build something amazing together.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Usefull Links</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-user"></i> About us</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-code"></i> Gallery</a></li>
+                        <li><a href="paintings.html"><i class="fas fa-briefcase"></i>Paintings</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+                        <li><a href="signup.html"><i class="fas fa-envelope"></i>Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Subscribe Now</h4>
+                    <p>Promotions, new products and sales.Not Forget Subscribe Our Brand.</p>
+                    <div class="subscribe-box" style="display:flex; gap:10px;">
+                        <input type="text" placeholder="SUBSCRIBE TO OUR NEWS LETTER ->" id="subscribeInput"
+                            class="input">
+                        <button id="footersubscribeBtn">&#8594;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; Gallery Is First Choice For You: BEST.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- ...............................Footer end........................ -->
+
+    <script src="js/bootstrap.js"></script>
+    <script src="jquerydownload.js"></script>
+    <script>
+
+            // <!-- /* .................footer section end..................... */ -->
+        $('#footersubscribeBtn').click(function () {
+            let subscribe = $('#subscribeInput').val();
+            if (subscribe === '') {
+                alert('Please enter your email!');
+            }   
+            else {
+                alert('Thanks for subscribing!');
+                $('#subscribeInput').val(''); // input clear kar de
+            }
+        });
+
+            // <!-- /* .................footer section end..................... */ -->
+    </script>
+</body>
+
+</html>

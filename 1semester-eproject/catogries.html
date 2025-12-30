@@ -1,0 +1,2241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oil Colors</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="fontawesome-free-7.0.1-web/css/all.min.css">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+ /* .................navbar styling..................... */
+
+        .navbar {
+            background-color: #1e1e1e;
+            height: 100px;
+        }
+
+        .navbar-brand .logo-img {
+            width: 140px;
+            height: 100px
+        }
+
+        .navbar-nav {
+            gap: 30px;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: 0.3s;
+            font-size: 1.2rem;
+            color: #f5f5f5 !important;
+            font-weight: bold;
+        }
+
+
+        .navbar-container {
+            background-color: #1e1e1e !important;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: .5rem;
+            bottom: -.5px;
+            width: 0%;
+            height: 3px;
+            background: #1B4965;
+            transition: 0.4s ease-in-out;
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            color: #1B4965 !important;
+        }
+
+        .btn-signup {
+            background-color: #1B4965;
+            color: #f5f5f5;
+            border: none;
+            width: 150px;
+            height: 40px;
+            padding: 8px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-signup:hover {
+            background-color: #FF8C42;
+            color: #121212;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,140,66,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+
+        /* Dropdown Styles */
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-menu {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 10px 0;
+            background-color: #121212;
+            border: 1px solid #1B4965;
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            transition: background-color 0.2s ease;
+            color: #f5f5f5;
+        }
+
+        .dropdown-item:hover {
+            background-color: #1B4965;
+            color: #f5f5f5;
+        }
+
+        .navbar-collapse .mobile-search {
+            display: none;
+        }
+
+        /* LEFT SLIDE MOBILE NAVBAR */
+        @media (max-width: 991px) {
+            .navbar-brand .logo-img {
+                width: 100px;
+                height: 50px
+            }
+
+            .navbar-collapse {
+                position: fixed;
+                top: 100px;
+                left: -100%;
+                width: 280px;
+                height: 100vh;
+                background: #121212;
+                padding: 50px 20px 20px;
+                transition: 0.4s ease-in-out;
+            }
+
+            .navbar-collapse.show {
+                left: 0;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+            }
+
+            .navbar-collapse .nav-link {
+                display: inline-block;
+                padding-bottom: 6px;
+            }
+
+            .navbar-collapse .nav-link::after {
+                left: 0;
+                bottom: 0;
+                width: 0%;
+            }
+
+            .navbar-collapse .nav-link:hover::after {
+                width: 100%;
+            }
+
+            .nav-buttons {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+            }
+        }
+
+        /* .................navbar styling end..................... */
+
+                /* .............register sign up form start................... */
+        .register-form-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 9999;
+        }
+
+
+        .sign-up-form {
+            display: flex;
+            justify-content: center;
+        }
+
+        .sign-up {
+            position: relative;
+            /* for close button */
+            margin-top: 100px;
+            text-align: center;
+            padding: 15px 30px;
+            width: 100%;
+            border-radius: 10px;
+            height: auto;
+            border: none;
+            background-color: #fff;
+        }
+
+        .register-form-main-head {
+            text-transform: capitalize;
+            font-weight: bold;
+            color: #1b4965;
+        }
+
+        .sign-up p {
+            text-transform: capitalize;
+            font-weight: 500;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .forget-password {
+            color: #ff8c42;
+        }
+
+        .forget-password:hover {
+            color: #1b4965;
+        }
+
+        .register-sign-up-form-input {
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            margin: 30px 10px;
+        }
+
+        .register-sign-in-form-input {
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            margin: 20px 10px;
+
+        }
+
+        .form-control::placeholder {
+            text-align: left;
+            text-transform: capitalize;
+        }
+
+        .register-btn,
+        .register-sign-in-btn {
+            text-decoration: none;
+            text-transform: capitalize;
+            background-color: #1b4965;
+            width: 100%;
+            color: white;
+            margin: 30px auto;
+        }
+
+        .register-btn:hover,
+        .register-sign-in-btn:hover {
+            text-decoration: none;
+            text-transform: capitalize;
+            background-color: #ff8c42;
+            width: 100%;
+            color: white;
+            margin: 30px auto;
+        }
+
+        .sign-in-link a {
+            color: #ff8c42;
+            text-decoration: none;
+        }
+
+        .sign-in-link a:hover {
+            color: #1b4965;
+        }
+
+        .sign-in-form {
+            position: relative;
+            top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sign-up .register-sign-up-btn {
+            text-decoration: none;
+            margin-left: 5px;
+            text-transform: capitalize;
+            font-weight: 500;
+            color: #ff8c42;
+        }
+
+        .sign-up .register-sign-up-btn:hover {
+            color: #1b4965;
+        }
+
+        /* Cross button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: #198754;
+        }
+
+        .close-btn:hover {
+            color: red;
+        }
+        /* .............register sign up form end................... */
+
+    /* ...................colors section start.................. */
+    .colors-section {
+        margin: 100px auto;
+        background-color: rgba(27, 73, 101, 0.05);
+        padding: 40px 20px;
+        border-radius: 20px;
+    }
+
+    .section-head-container .oil-color-head {
+        margin: 50px auto;
+        text-align: center;
+        font-weight: bolder;
+        font-size: 50px;
+        color: #1B4965;
+    }
+
+    .colors-card {
+        height: auto;
+        border: 2px solid #1B4965;
+        border-radius: 30px;
+        background: white;
+        transition: all 0.3s ease;
+    }
+
+    .colors-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 20px rgba(255, 140, 66, 0.4);
+        border-color: #FF8C42;
+    }
+
+    .colors-card .colors-card-img {
+        height: 300px;
+        border-radius: 30px 30px 0 0;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .colors-card-body .colors-card-head {
+        margin: 20px;
+        font-weight: bold;
+        color: #1B4965;
+    }
+
+    .colors-card-body .colors-card-btn {
+        background-color: #1B4965;
+        color: #f5f5f5;
+        width: 50%;
+        border-radius: 20px;
+        border: none;
+        padding: 10px 20px;
+        transition: all 0.3s ease;
+    }
+
+    .colors-card-body .colors-card-btn:hover {
+        background-color: #FF8C42;
+        color: #121212;
+        transform: translateY(-2px);
+    }
+
+    /* ...................colors section end.................. */
+
+    /* .........................Footer section start............................ */
+    footer {
+        background: #121212;
+        padding: 80px 0 0;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: 3fr 2fr 6fr;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-bottom: 60px;
+    }
+
+    .footer-about h3 {
+        font-size: 2rem;
+        color: #FF8C42;
+        margin-bottom: 20px;
+    }
+
+    .footer-about p {
+        margin-bottom: 30px;
+        color: #f5f5f5;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 15px;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 140, 66, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FF8C42;
+        text-decoration: none;
+        transition: all 0.5s ease;
+    }
+
+    .social-link:hover {
+        background: #FF8C42;
+        color: #121212;
+        transform: translateY(-10px);
+    }
+
+    .footer-links h4 {
+        margin-left: 30px;
+    }
+
+    .footer-links h4,
+    .footer-contact h4 {
+        font-size: 1.3rem;
+        color: #FF8C42;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .footer-links h4::after,
+    .footer-contact h4::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: #FF8C42;
+    }
+
+    .footer-links ul {
+        list-style: none;
+    }
+
+    .footer-links ul li a i {
+        color: #FF8C42;
+    }
+
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+
+    .footer-links a {
+        color: #f5f5f5;
+        text-decoration: none;
+        transition: all 1s ease;
+        display: flex;
+        align-items: center;
+        line-height: 40px;
+        gap: 10px;
+    }
+
+    .footer-links a:hover {
+        color: #FF8C42;
+        transform: translateX(10px);
+    }
+
+    .footer-bottom {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 25px 0;
+        text-align: center;
+        color: #f5f5f5;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-contact p {
+        color: #f5f5f5;
+    }
+
+    .footer-contact .input {
+        width: 80%;
+        height: 40px;
+        border-radius: 10px;
+        padding: 10px;
+        border: none;
+        outline: none;
+        background: rgba(255, 255, 255, 0.1);
+        color: #f5f5f5;
+    }
+
+    .footer-contact .input::placeholder {
+        color: rgba(245, 245, 245, 0.7);
+    }
+
+    .subscribe-box {
+        display: flex;
+        gap: 20px;
+    }
+
+    .subscribe-box #footersubscribeBtn {
+        padding: 0 10px;
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #1B4965;
+        border-radius: 10px;
+        color: #f5f5f5;
+        transition: all 0.3s ease;
+    }
+
+    .subscribe-box #footersubscribeBtn:hover {
+        background-color: #FF8C42;
+        color: #121212;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width:992px) {
+        .footer-content {
+            grid-template-columns: 1fr 1fr;
+            margin-left: 20px;
+        }
+    }
+
+    @media (max-width:768px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* .............................footer section end..................... */
+
+    /* <!-- ......................detail page and add to cart section start................. --> */
+    .detail-section {
+        display: none;
+    }
+
+    .detail-page {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        z-index: 99999;
+        overflow-y: auto;
+        padding: 20px;
+    }
+
+
+    .detail-wrapper {
+        width: 80%;
+        margin: 40px auto auto auto;
+        text-align: left;
+    }
+
+    .detail-wrapper #detailName {
+        font-size: 3rem;
+        margin-bottom: 50px;
+        color: #1B4965;
+    }
+
+    .detail-wrapper p {
+        font-size: larger;
+        line-height: 2rem;
+        text-align: left;
+        font-weight: 600;
+        color: #1B4965;
+    }
+
+    .detail-wrapper .detail-price {
+        margin-top: 10px;
+        font-size: xx-large;
+        font-weight: bolder;
+        color: #1B4965;
+    }
+
+    #detailImg {
+        width: 500px;
+        height: 400px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    .detail-features-list {
+        line-height: 30px;
+        color: #1B4965;
+    }
+
+    .detail-price {
+        font-size: 22px;
+        margin-top: 20px;
+        color: #1B4965;
+    }
+
+    .detail-btn {
+        margin-top: 20px;
+        padding: 12px 22px;
+        background: #1B4965;
+        color: #f5f5f5;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        transition: all 0.3s ease;
+    }
+
+    .detail-btn:hover {
+        background: #FF8C42;
+        color: #121212;
+        transform: translateY(-2px);
+    }
+
+    .close-detail-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 30px;
+        cursor: pointer;
+        background-color: #1B4965;
+        color: #f5f5f5;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+    .close-detail-btn:hover {
+        background-color: #FF8C42;
+        color: #121212;
+        transform: translateY(-2px);
+    }
+
+    /* ...............buy now form.................................. */
+    .modal-heading {
+        font-weight: 700;
+        color: #1B4965;
+    }
+
+    .modal-close-btn {
+        font-size: x-large;
+        font-weight: bolder;
+    }
+
+    .modal-items {
+        margin: 20px auto;
+    }
+
+    .modal-label {
+        margin: 10px auto;
+        font-size: large;
+        font-weight: 600;
+        color: #1B4965;
+    }
+
+    .modal-input {
+        height: 40px;
+        border: 2px solid rgba(27, 73, 101, 0.3);
+        outline: none;
+        border-radius: 20px;
+        padding: 8px;
+    }
+
+    .modal-address-input {
+        border: 2px solid rgba(27, 73, 101, 0.3);
+        outline: none;
+        border-radius: 20px;
+        padding: 10px;
+    }
+
+    .modal-input:focus,
+    .modal-address-input:focus {
+        border-color: #FF8C42;
+        box-shadow: 0 0 0 0.25rem rgba(255, 140, 66, 0.25);
+    }
+
+    .modal-order-btn {
+        width: 50%;
+        display: block;
+        margin: auto;
+        background-color: #1B4965;
+        color: #f5f5f5;
+        transition: all 0.3s ease;
+    }
+
+    .modal-order-btn:hover {
+        background-color: #FF8C42;
+        color: #121212;
+        transform: translateY(-2px);
+    }
+
+    #buyNowModal {
+        z-index: 100000;
+    }
+
+    /* ...............buy now form end.................................. */
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .section-head-container .oil-color-head {
+            font-size: 2rem;
+            margin: 30px auto;
+        }
+
+        .colors-card .colors-card-img {
+            height: 250px;
+        }
+
+        .colors-card-body .colors-card-btn {
+            width: 70%;
+        }
+
+        .detail-wrapper #detailName {
+            font-size: 2rem;
+        }
+
+        #detailImg {
+            width: 100%;
+            height: 300px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .section-head-container .oil-color-head {
+            font-size: 1.8rem;
+        }
+
+        .colors-card {
+            border: 1px solid #1B4965;
+        }
+
+        .colors-card-body .colors-card-btn {
+            width: 90%;
+        }
+    }
+</style>
+</style>
+
+<body>
+    <!-- /* .................navbar section start..................... */ -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container-fluid navbar-container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#home">
+                <img src="images/navbar-logo-original.png" class="logo-img" alt="">
+            </a>
+
+            <!-- Toggler Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" b>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Content -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- Links -->
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button">Paintings</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="surface.html">Surface</a></li>
+                            <li><a class="dropdown-item" href="paintings.html">Color Type</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#product-section">products</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+
+                <!-- Buttons -->
+                <div class="nav-buttons">
+                    <button class="btn btn-signup" onclick="openSignup()">Sign Up</button>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- /* .................navbar section end..................... */ -->
+
+    <!-- .....................sign-up and register form start.......,.......... -->
+         <!-- Sign Up Form -->
+    <section class="register-form-section">
+        <div id="sign-up" class="container sign-up-form">
+            <div class="col-md-6 col-lg-4 col-10">
+                <div class="sign-up">
+                    <span class="close-btn">&times;</span>
+                    <h1 class="register-form-main-head">Galleria</h1>
+                    <p>create your account</p>
+                    <input type="text" id="signup-name" class="form-control register-sign-up-form-input"
+                        placeholder="full name">
+                    <input type="text" id="signup-email" class="form-control register-sign-up-form-input"
+                        placeholder="email">
+                    <input type="password" id="signup-pass" class="form-control register-sign-up-form-input"
+                        placeholder="password">
+                    <input type="password" id="signup-cpass" class="form-control register-sign-up-form-input"
+                        placeholder="confirm password">
+                    <div id="register-btn" class="reg-btn btn register-btn">register
+                    </div>
+                    <p class="sign-in-link">already have an account? <a href="" id="open-sign-in">sign in</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign In Form -->
+        <div id="sign-in" class="container  sign-in-form  d-none">
+            <div class="col-md-6 col-lg-4 col-10">
+                <div id="log" class="sign-up">
+                    <span class="close-btn">&times;</span>
+                    <h1 class="register-form-main-head">Galleria</h1>
+                    <p>Great to have you back.</p>
+                    <input type="text" id="signin-email" class="form-control register-sign-in-form-input"
+                        placeholder="email">
+                    <input type="password" id="signin-pass" class="form-control register-sign-in-form-input"
+                        placeholder="password">
+                    <a href="" class="forget-password">forgot password?</a>
+                    <div class="reg-btn btn register-sign-in-btn">sign in</div>
+                    <p>don't have an account? <a href="" class="register-sign-up-btn" id="open-sign-up"> sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- .....................sign-up and register form end.......,.......... -->
+
+
+    <!-- /* ...................colors section start.................. */ -->
+    <div class="colors-container">
+        <section class="colors-section" id="oil-colors-section">
+            <div class="container main-container">
+                <div class="section-head-container">
+                    <h1 class=" oil-color-head" id="oilcolor">Oil Colors</h1>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMnN8UgAvkEsWmBroalocD5VywJ_veCS4aew&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Traditional Linseed Oil Paints</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="2">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvzD5APJvwGNC6VQGXL3x0OFASGfMXsVeNSQ&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Water-Mixable Oil Paints</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="3">
+                            <img src="https://artincontext.org/wp-content/uploads/2021/09/Fast-Drying-Oil-Paint.jpg"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Fast-Dry Oil Paints</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="4">
+                            <img src="https://images.squarespace-cdn.com/content/v1/6534d73c957ff6387fca4f5d/aa240bfa-ad9b-4037-ba2d-02c980a4741e/IMG_8853.JPG"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Cold Wax Oil Paints</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="5">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFJrkXvalhDFKlAtRsnpR4Nyq5SAuYcYMI9Q&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Alkyd Oil Paints</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="colors-section" id="water-colors-section">
+            <div class="container main-container">
+                <div class="section-head-container">
+                    <h1 class=" oil-color-head" id="watercolor">Water Colors</h1>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="21">
+                            <img src="https://images.squarespace-cdn.com/content/v1/5d4be45b12b61900013dfa24/ea70b5c1-12dc-48c1-a6fc-9a13e798a922/watercolor+pans+and+tubes.jpg"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Pan Watercolors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="22">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKRmQkD5hT5NnxdkgWKMnKzGDF6u3t8jMROw&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Tube Watercolors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="23">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTeaCFTMRbokQNCwLXea3AjeM0_H-isHzFjw&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Liquid Watercolors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="24">
+                            <img src="https://akvarell.se/wp-content/uploads/2023/09/granulerande_farger.jpg"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Granulating Watercolors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="25">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyi9pXUk0MCrcertTAS3YGGKiBW2Gyyz4tWQ&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Metallic Watercolors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="colors-section" id="acrylic-colors-section">
+            <div class="container main-container">
+                <div class="section-head-container">
+                    <h1 class=" oil-color-head">Acrylic Colors</h1>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="31">
+                            <img src="https://i.ytimg.com/vi/wH-LaRNyuP4/maxresdefault.jpg" class="colors-card-img"
+                                alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Heavy Body Acrylics</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="32">
+                            <img src="https://i.ytimg.com/vi/EySd5UV5exg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCrLiHLa-OyBm7RHbpqSaQdeBvozQ"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Fluid Acrylics</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="33">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbcE2ahmYHE2E3J0FdWT6RhyLALTzjydLNow&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Open Acrylics</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="34">
+                            <img src="https://altenew.com/cdn/shop/articles/Acrylic_paints_fc405293-6d48-472b-a3a1-d993edf76332_1200x.jpg?v=1756400612"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Acrylic Ink</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="35">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk_2v_odzi--6C70POe_S2LnHFlGw8D053GQ&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Pouring Acrylics</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="colors-section" id="acrylic-colors-section">
+            <div class="container main-container">
+                <div class="section-head-container">
+                    <h1 class=" oil-color-head">Poster Colors</h1>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="41">
+                            <img src="https://i.pinimg.com/736x/cc/9e/c4/cc9ec4142c4d8529b3e80ab6db95088d.jpg"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Opaque Poster Colors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="42">
+                            <img src="https://i.etsystatic.com/52088649/r/il/4123da/6193090955/il_fullxfull.6193090955_e212.jpg"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Fluorescent Poster Colors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="43">
+                            <img src="https://i.ebayimg.com/images/g/P-UAAOSwlDxhiCcN/s-l400.jpg"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Matte Finish Poster Colors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="44">
+                            <img src="https://i.pinimg.com/736x/ed/84/ac/ed84ac8aa5e6443c1349d75ffd78e4dc.jpg"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Jar Poster Colors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="45">
+                            <img src="https://c8.alamy.com/comp/D1E936/primary-colors-in-paint-pot-yellow-green-red-and-blue-poster-ready-D1E936.jpg"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Ready-Mix Poster Colors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="colors-section" id="charcoal-colors-section">
+            <div class="container main-container">
+                <div class="section-head-container">
+                    <h1 class=" oil-color-head">Charcoal Colors</h1>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="51">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1_CAyYqC9HDDfFVvbbvB4NVzfZOgdIZpcwg&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Vine Charcoal</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="52">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj-1HXyQUT_EDXqdYs19rTwLZhFeC0_YR6Uw&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Compressed Charcoal Sticks</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="53">
+                            <img src="https://i.ytimg.com/vi/YI2U9RqNC3E/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAo3FNgQatWOaaM0Uk-G9RBgtxzyw"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Charcoal Pencils</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="54">
+                            <img src="https://i.ytimg.com/vi/-an3m39nLIU/maxresdefault.jpg" class="colors-card-img"
+                                alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Charcoal Powder</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="55">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjKjf-Yy7Z9p81f85HvVN3fQQl7dJbtsF4XA&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Tinted Charcoal</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="colors-section" id="guoache-colors-section">
+            <div class="container main-container">
+                <div class="section-head-container">
+                    <h1 class=" oil-color-head">Guoache Colors</h1>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="61">
+                            <img src="https://drawpaintacademy.com/wp-content/uploads/2021/06/Henri-Matisse-Woman-with-a-Hat-1905-700W.jpg"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Traditional Gouache</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="62">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr1RRGJoek3F4gdPgxQidC7xTpLcXcPD20vA&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Acrylic Gouache</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="63">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklxP5WUAkZsqACGNo8Q5Y1LLPirvw9qqr-A&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Designer Gouache</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="64">
+                            <img src="https://www.outdoorpainter.com/wp-content/uploads/2025/02/duomo-view.jpg"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Re-Wettable Gouache</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="65">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzczdLCqyQtirz2IEoNheM3A1RchQWSolglg&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Metallic Gouache</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="colors-section" id="fabric-colors-section">
+            <div class="container main-container">
+                <div class="section-head-container">
+                    <h1 class=" oil-color-head">Fabric Colors</h1>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="71">
+                            <img src="https://m.media-amazon.com/images/I/81+W6bnHvcL.jpg" class="colors-card-img"
+                                alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Permanent Fabric Paints</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="72">
+                            <img src="https://www.montmarte.com/cdn/shop/articles/vlcsnap-2024-12-20-09h53m33s513.png?v=1734652468"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Heat-Set Fabric Colors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="73">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQffOj6S0viRXQp9lOsTDe1jyD5aLm0wpR-Hw&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Fabric Markers</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="74">
+                            <img src="https://i.pinimg.com/564x/ff/95/71/ff9571ae8f4a8ac7d523b02c32d0b035.jpg"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Glow Fabric Colors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="75">
+                            <img src="https://i.pinimg.com/236x/91/14/a0/9114a0d357f96ab29c5eb4f6f8767523.jpg"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">3D Fabric Paints</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="colors-section" id="glass-colors-section">
+            <div class="container main-container">
+                <div class="section-head-container">
+                    <h1 class=" oil-color-head">Glass Colors</h1>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="81">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRfmr70PiUig634B73brroo1mXZOb4X-2-VA&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Transparent Glass Paints</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="82">
+                            <img src="https://www.artglasssupplies.com/blog/wp-content/uploads/2022/06/aa.png"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Frosted Glass Colors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="83">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAaqKyUhw1w82U20LC5z0leH05uym7vXcwsA&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Outliner Glass Colors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="84">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFVtnhgZ-D5gZUmoaB7ufKP1hl72JamB0Clw&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Bake-Fix Glass Colors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="85">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9nYrdd8y6Cs8bZqWChfaituc_y8eCIMJ0TA&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Peelable Glass Colors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="colors-section" id="metallic-colors-section">
+            <div class="container main-container">
+                <div class="section-head-container">
+                    <h1 class=" oil-color-head">Mettalic Colors</h1>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="91">
+                            <img src="https://oytra.com/cdn/shop/files/4_436ee48e-fbf0-4f31-8dc0-f4c2e362d86a.png?v=1753688997&width=1445"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Gold & Silver Metallic Paints</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="92">
+                            <img src="https://i.ytimg.com/vi/ZDoBTPFTrbg/maxresdefault.jpg" class="colors-card-img"
+                                alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Pearl Metallic Colors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="93">
+                            <img src="https://i.ytimg.com/vi/XzOixu5x9vQ/maxresdefault.jpg" class="colors-card-img"
+                                alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Chrome Metallic Paints</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="94">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd7l1-vFQlIWMFvJZPftNFTXRm_2KNZbBgCQ&s"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Antique Metallic Colors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-6">
+                        <div class="card colors-card" id="95">
+                            <img src="https://www.shutterstock.com/image-illustration/currents-translucent-hues-snaking-metallic-260nw-2618116389.jpg"
+                                class="colors-card-img" alt="Metallic Colors">
+                            <div class="card-body colors-card-body">
+                                <h5 class="card-title colors-card-head">Metallic Ink Colors</h5>
+                                <a href="#" class="btn colors-card-btn">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- /* ...................colors section end.................. */ -->
+
+    <!-- ...............................Footer start........................ -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Galleria</h3>
+                    <p>Creating exceptional digital experiences with modern design and cutting-edge technology. Let's
+                        build something amazing together.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Usefull Links</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-user"></i> About us</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-code"></i> Gallery</a></li>
+                        <li><a href="paintings.html"><i class="fas fa-briefcase"></i>Paintings</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+                        <li><a href="signup.html"><i class="fas fa-envelope"></i>Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Subscribe Now</h4>
+                    <p>Promotions, new products and sales.Not Forget Subscribe Our Brand.</p>
+                    <div class="subscribe-box" style="display:flex; gap:10px;">
+                        <input type="text" placeholder="SUBSCRIBE TO OUR NEWS LETTER ->" id="subscribeInput"
+                            class="input">
+                        <button id="footersubscribeBtn">&#8594;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; Gallery Is First Choice For You: BEST.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- ...............................Footer end........................ -->
+    <!-- ......................detail page and add to cart section start................. -->
+    <section class="detail-section">
+        <div id="detailPage" class="detail-page container-fluid">
+            <div class="close-detail-btn-div">
+                <button id="closeDetail" class="close-detail-btn">&times;</button>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 col-12 text-center mb-4">
+                    <img id="detailImg" class="img-fluid">
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="detail-wrapper">
+                        <h1 id="detailName"></h1>
+                        <p id="detail-para"></p>
+                        <h3>Features</h3>
+                        <ul class="detail-features-list"></ul>
+                        <p class="detail-price">price: <span id="detailPrice"></span></p>
+                        <button id="detailbuynow" class="detail-btn" data-bs-toggle="modal"
+                            data-bs-target="#buyNowModal">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ......................detail page and add to cart section end complete................. -->
+
+    <!-- /* ...............buy now form start.................................. */ -->
+    <div class="modal fade" id="buyNowModal" tabindex="-999">
+        <div class="modal-dialog modal-fullscreen-lg-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-heading">Order Now</h2>
+                    <button type="button" class="btn-close modal-close-btn" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Buy Now Form -->
+                    <form id="buyNowForm">
+                        <div class="modal-items">
+                            <label for="name" class="modal-label">Full Name :</label>
+                            <input type="text" class="form-control modal-input" id="name" required>
+                        </div>
+
+                        <div class="modal-items">
+                            <label for="email" class="modal-label">Email :</label>
+                            <input type="email" class="form-control modal-input" id="email" required>
+                        </div>
+
+                        <div class="modal-items">
+                            <label for="phone" class="modal-label">Phone :</label>
+                            <input type="number" class="form-control modal-input" id="phone" required>
+                        </div>
+
+                        <div class="modal-items">
+                            <label for="address" class="modal-label">Address :</label>
+                            <textarea class="form-control modal-address-input" id="address" rows="3"
+                                required></textarea>
+                        </div>
+
+                        <div class="modal-items">
+                            <label for="painting" class="modal-label">Order Notes :</label>
+                            <input type="text" class="form-control modal-input" id="ordernotes" required>
+                        </div>
+
+                        <div class="modal-items">
+                            <label for="painting" class="modal-label">City :</label>
+                            <input type="text" class="form-control modal-input" id="city" required>
+                        </div>
+
+                        <div class="detail-quantity-area my-5">
+                            <label for="quantity" class="modal-label">Quantity :</label>
+                            <input type="number" class="form-control modal-input" value="1" min="1" required>
+                        </div>
+
+                        <button type="submit" class="btn  modal-order-btn">Place Order</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /* ...............buy now form end.................................. */ -->
+
+    <script src="jquerydownload.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+
+                // ..................sign up register form script start............
+        $(document).ready(function () {
+
+                        // Navbar button click → show form
+            $(".btn-signup, #open-signup-btn").click(function (e) {
+                e.preventDefault();
+                $("#sign-up").closest(".register-form-section").fadeIn(300);
+            });
+
+            // Close button
+            $(".close-btn").click(function () {
+                $(this).closest(".register-form-section").fadeOut(300);
+            });
+
+            // Open Login
+            $("#open-sign-in").click(function (e) {
+                e.preventDefault();
+                $("#sign-up").fadeOut(300, function () {
+                    $("#sign-in").removeClass("d-none").fadeIn(300);
+                });
+            });
+
+            // Open Sign Up from Sign In
+            $("#open-sign-up").click(function (e) {
+                e.preventDefault();
+                $("#sign-in").fadeOut(300, function () {
+                    $("#sign-up").removeClass("d-none").fadeIn(300);
+                });
+            });
+
+            // Simple Sign Up Validation
+            $("#register-btn").click(function () {
+                let name = $("#signup-name").val();
+                let email = $("#signup-email").val();
+                let pass = $("#signup-pass").val();
+                let cpass = $("#signup-cpass").val();
+
+                if (name === "" || email === "" || pass === "" || cpass === "") {
+                    alert("All fields are required!");
+                    return;
+                }
+                if (pass !== cpass) {
+                    alert("Passwords do not match!");
+                    return;
+                }
+
+                alert("Registration Successful!");
+                $("#signup-name, #signup-email, #signup-pass, #signup-cpass").val('');
+                $("#sign-up").closest(".register-form-section").fadeOut(300);
+            });
+        });
+
+        // ..................sign up register form script end............
+
+        // <!-- /* .................footer section end..................... */ -->
+        $('#footersubscribeBtn').click(function () {
+            let subscribe = $('#subscribeInput').val();
+            if (subscribe === '') {
+                alert('Please enter your email!');
+            }
+            else {
+                alert('Thanks for subscribing!');
+                $('#subscribeInput').val(''); // input clear kar de
+            }
+        });
+
+        // <!-- /* .................footer section end..................... */ -->
+        const products = {
+            1: {
+                name: "Traditional Linseed Oil Paints",
+                para: "Traditional linseed oil paints are classic oil paints made with natural linseed oil, providing deep, rich colors and smooth blending. Perfect for traditional fine art painting.",
+                featured: ["Slow drying for extended blending.",
+                    "Strong color retention .",
+                    " Ideal for layered painting .",
+                    "Glossy finish ."],
+                price: "6,000.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMnN8UgAvkEsWmBroalocD5VywJ_veCS4aew&s"
+            },
+            2: {
+                name: "Water-Mixable Oil Paints",
+                para: "Oil paints that can be thinned and cleaned with water, making them safer and easier to use.",
+                featured: ["Easy water cleanup.",
+                    "Non-toxic.",
+                    "Suitable for beginners.",
+                    "Flexible paint film."],
+                price: "3,000.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvzD5APJvwGNC6VQGXL3x0OFASGfMXsVeNSQ&s"
+            },
+            3: {
+                name: "Fast-Dry Oil Paints",
+                para: "Special oils formulated to dry faster than traditional oils, saving time without compromising quality.",
+                featured: ["Quick drying.",
+                    "Maintains vibrant colors.",
+                    "Suitable for multiple layers.",
+                    "Smooth texture."],
+                price: "2,000.00",
+                img: "https://artincontext.org/wp-content/uploads/2021/09/Fast-Drying-Oil-Paint.jpg"
+            },
+            4: {
+                name: "Cold Wax Oil Paints",
+                para: "Combination of oil paint with cold wax for textured, matte finishes and unique artistic effects. ",
+                featured: ["Textured matte finish.",
+                    "Increased paint body.",
+                    "Excellent for palette knife work.",
+                    "• Easy to sculpt layers."],
+                price: "7,500.00",
+                img: "https://images.squarespace-cdn.com/content/v1/6534d73c957ff6387fca4f5d/aa240bfa-ad9b-4037-ba2d-02c980a4741e/IMG_8853.JPG"
+            },
+            5: {
+                name: "Alkyd Oil Paints",
+                para: "Alkyd oil paints are modern oil paints that dry much faster than traditional oils.They maintain smooth blending and strong durability.Suitable for both beginners and professionals.",
+                featured: ["Faster drying than oils.",
+                    "Smooth blending.",
+                    "Durable surface.",
+                    "Strong pigment strength."],
+                price: "12,000.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFJrkXvalhDFKlAtRsnpR4Nyq5SAuYcYMI9Q&s"
+            },
+            21: {
+                name: "Pan Watercolors",
+                para: "Pan watercolors come in solid blocks and are easy to carry.They are perfect for outdoor and travel painting.Artists can control color intensity easily.",
+                featured: ["Portable and compact.",
+                    "Easy to activate with water.",
+                    "Long-lasting pans.",
+                    "Ideal for sketching."],
+                price: "11,000.00",
+                img: "https://images.squarespace-cdn.com/content/v1/5d4be45b12b61900013dfa24/ea70b5c1-12dc-48c1-a6fc-9a13e798a922/watercolor+pans+and+tubes.jpg"
+            },
+            22: {
+                name: "Tube Watercolors",
+                para: "Tube watercolors provide vibrant pigments in liquid form.They are ideal for mixing large washes and smooth gradients.Popular among professional artists.",
+                featured: ["High pigment concentration.",
+                    "Easy color mixing.",
+                    "Flexible usage.",
+                    "Smooth washes."],
+                price: "5,000.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKRmQkD5hT5NnxdkgWKMnKzGDF6u3t8jMROw&s"
+            },
+            23: {
+                name: "Liquid Watercolors",
+                para: "Liquid watercolors are ready-to-use and highly saturated.They flow smoothly and create bright transparent effects.Commonly used in abstract and modern art.",
+                featured: ["Intense colors.",
+                    "Smooth flow.",
+                    "Easy blending.",
+                    "Quick drying."],
+                price: "5,500.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTeaCFTMRbokQNCwLXea3AjeM0_H-isHzFjw&s"
+            },
+            24: {
+                name: "Granulating Watercolors",
+                para: "Granulating watercolors separate pigments naturally while drying.They create beautiful textured effects on paper.Best for landscape and nature paintings.",
+                featured: ["Natural texture effect.",
+                    "Unique pigment separation.",
+                    "Transparent look.",
+                    "Artistic depth."],
+                price: "3,000.00",
+                img: "https://akvarell.se/wp-content/uploads/2023/09/granulerande_farger.jpg"
+            },
+            25: {
+                name: "Metallic Watercolors",
+                para: "Metallic watercolors add shimmer and shine to artwork.They are perfect for highlights and decorative details.Often used in calligraphy and illustrations.",
+                featured: ["Shiny metallic finish.",
+                    "Reflective effect.",
+                    "Easy to mix.",
+                    "Ideal for highlights."],
+                price: "2,000.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyi9pXUk0MCrcertTAS3YGGKiBW2Gyyz4tWQ&s"
+            },
+            31: {
+                name: "Heavy Body Acrylics",
+                para: "Heavy body acrylics are thick and hold brush strokes well.They are perfect for textured and impasto painting.Used widely in expressive art styles.",
+                featured: ["Thick consistency.",
+                    "Strong pigmentation.",
+                    "Texture retention.",
+                    "Fast drying."],
+                price: "10,000.00",
+                img: "c"
+            },
+            32: {
+                name: "Fluid Acrylics",
+                para: "Fluid acrylics have a smooth, pourable consistency.They are ideal for fine details and glazing techniques.Great for modern and abstract art.",
+                featured: ["Smooth flow.",
+                    "Easy layering.",
+                    "Even coverage.",
+                    "Quick drying."],
+                price: "11,000.00",
+                img: "https://i.ytimg.com/vi/EySd5UV5exg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCrLiHLa-OyBm7RHbpqSaQdeBvozQ"
+            },
+            33: {
+                name: "Open Acrylics",
+                para: "Open acrylics stay wet longer than standard acrylics.They allow extended blending time like oil paints.Suitable for detailed and realistic painting.",
+                featured: ["Slow drying.",
+                    "Smooth blending.",
+                    "High pigment quality.",
+                    "Oil-like feel."],
+                price: "500.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbcE2ahmYHE2E3J0FdWT6RhyLALTzjydLNow&s"
+            },
+            34: {
+                name: "Acrylic Ink",
+                para: "Acrylic inks are highly pigmented and liquid based.They are perfect for line work and illustrations.Once dry, they become waterproof.",
+                featured: ["Intense color.",
+                    "Waterproof finish.",
+                    "Smooth application.",
+                    "Suitable for fine details."],
+                price: "1,300.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbcE2ahmYHE2E3J0FdWT6RhyLALTzjydLNow&s"
+            },
+            35: {
+                name: "Pouring Acrylics",
+                para: "Pouring acrylics are made for fluid art techniques.They create cells and abstract patterns naturally.Popular in modern decorative art.",
+                featured: ["Fluid consistency.",
+                    "Cell creation.",
+                    "Bright colors.",
+                    "Easy mixing."],
+                price: "2,000.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk_2v_odzi--6C70POe_S2LnHFlGw8D053GQ&s"
+            },
+            /* ================= POSTER COLORS ================= */
+
+            41: {
+                name: "Opaque Poster Colors",
+                para: "Opaque poster colors provide solid and bold color coverage. They are easy to use and dry quickly. Commonly used for posters and illustrations.",
+                featured: [
+                    "Strong opacity.",
+                    "Bright shades.",
+                    "Smooth texture.",
+                    "Quick drying."
+                ],
+                price: "5,000.00",
+                img: "https://i.pinimg.com/736x/cc/9e/c4/cc9ec4142c4d8529b3e80ab6db95088d.jpg"
+            },
+
+            42: {
+                name: "Fluorescent Poster Colors",
+                para: "Fluorescent poster colors produce neon and glowing shades. They are highly visible and eye-catching. Perfect for creative designs.",
+                featured: [
+                    "Neon brightness.",
+                    "High visibility.",
+                    "Smooth application.",
+                    "Fast drying."
+                ],
+                price: "6,500.00",
+                img: "https://i.etsystatic.com/52088649/r/il/4123da/6193090955/il_fullxfull.6193090955_e212.jpg"
+            },
+
+            43: {
+                name: "Matte Poster Colors",
+                para: "Matte poster colors offer a flat and non-shiny finish. They give clean and professional results. Easy to control and apply.",
+                featured: [
+                    "Matte finish.",
+                    "Even color spread.",
+                    "Easy handling.",
+                    "Quick drying."
+                ],
+                price: "5,800.00",
+                img: "https://i.ebayimg.com/images/g/P-UAAOSwlDxhiCcN/s-l400.jpg"
+            },
+
+            44: {
+                name: "Jar Poster Colors",
+                para: "Jar poster colors are suitable for large artwork and classrooms. They provide ample quantity and smooth mixing. Ideal for group use.",
+                featured: [
+                    "Large quantity.",
+                    "Easy mixing.",
+                    "Smooth consistency.",
+                    "Long lasting."
+                ],
+                price: "7,000.00",
+                img: "https://i.pinimg.com/736x/ed/84/ac/ed84ac8aa5e6443c1349d75ffd78e4dc.jpg"
+            },
+
+            45: {
+                name: "Ready-Mix Poster Colors",
+                para: "Ready-mix poster colors come pre-mixed for convenience. They save time and effort. Best for quick projects.",
+                featured: [
+                    "No mixing needed.",
+                    "Consistent color.",
+                    "Beginner friendly.",
+                    "Fast drying."
+                ],
+                price: "6,000.00",
+                img: "https://c8.alamy.com/comp/D1E936/primary-colors-in-paint-pot-yellow-green-red-and-blue-poster-ready-D1E936.jpg"
+            },
+
+            /* ================= CHARCOAL ================= */
+
+            51: {
+                name: "Vine Charcoal",
+                para: "Vine charcoal is soft and lightweight. It is easy to erase and ideal for rough sketches. Commonly used in early drawing stages.",
+                featured: [
+                    "Very soft texture.",
+                    "Easy to erase.",
+                    "Light shading.",
+                    "Natural material."
+                ],
+                price: "4,500.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1_CAyYqC9HDDfFVvbbvB4NVzfZOgdIZpcwg&s"
+            },
+
+            52: {
+                name: "Compressed Charcoal",
+                para: "Compressed charcoal produces dark and bold strokes. It offers better control and rich blacks. Suitable for detailed drawings.",
+                featured: [
+                    "Deep black tone.",
+                    "Strong strokes.",
+                    "Less smudging.",
+                    "High durability."
+                ],
+                price: "6,000.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj-1HXyQUT_EDXqdYs19rTwLZhFeC0_YR6Uw&s"
+            },
+
+            53: {
+                name: "Charcoal Pencils",
+                para: "Charcoal pencils allow controlled and precise drawing. They are excellent for portraits and realism. Easy to sharpen and use.",
+                featured: [
+                    "Precise control.",
+                    "Fine detailing.",
+                    "Smooth shading.",
+                    "Easy handling."
+                ],
+                price: "7,200.00",
+                img: "https://i.ytimg.com/vi/YI2U9RqNC3E/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAo3FNgQatWOaaM0Uk-G9RBgtxzyw"
+            },
+
+            54: {
+                name: "Powdered Charcoal",
+                para: "Powdered charcoal is used for covering large areas. It blends smoothly and creates soft backgrounds. Ideal for tonal work.",
+                featured: [
+                    "Smooth blending.",
+                    "Wide coverage.",
+                    "Soft effects.",
+                    "Easy application."
+                ],
+                price: "5,500.00",
+                img: "https://i.ytimg.com/vi/-an3m39nLIU/maxresdefault.jpg"
+            },
+
+            55: {
+                name: "White Charcoal",
+                para: "White charcoal is perfect for highlights on dark paper. It enhances contrast and depth. Widely used in figure drawing.",
+                featured: [
+                    "Highlight enhancement.",
+                    "Soft texture.",
+                    "Easy blending.",
+                    "Dark paper friendly."
+                ],
+                price: "6,800.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjKjf-Yy7Z9p81f85HvVN3fQQl7dJbtsF4XA&s"
+            },
+
+            /* ================= GOUACHE ================= */
+
+            61: {
+                name: "Designer Gouache",
+                para: "Designer gouache offers strong opacity with smooth matte finish. It is ideal for illustration and commercial art.",
+                featured: [
+                    "Matte finish.",
+                    "High opacity.",
+                    "Smooth texture.",
+                    "Rich pigments."
+                ],
+                price: "11,500.00",
+                img: "https://drawpaintacademy.com/wp-content/uploads/2021/06/Henri-Matisse-Woman-with-a-Hat-1905-700W.jpg"
+            },
+
+            62: {
+                name: "Artist Gouache",
+                para: "Artist gouache uses professional pigments. It provides vibrant colors and excellent control. Suitable for fine art work.",
+                featured: [
+                    "Professional quality.",
+                    "Vibrant colors.",
+                    "Matte finish.",
+                    "Excellent control."
+                ],
+                price: "13,000.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr1RRGJoek3F4gdPgxQidC7xTpLcXcPD20vA&s"
+            },
+
+            63: {
+                name: "Acrylic Gouache",
+                para: "Acrylic gouache combines gouache appearance with acrylic durability. Once dry, it becomes water resistant.",
+                featured: [
+                    "Water resistant.",
+                    "Fast drying.",
+                    "Matte surface.",
+                    "Strong adhesion."
+                ],
+                price: "14,500.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklxP5WUAkZsqACGNo8Q5Y1LLPirvw9qqr-A&s"
+            },
+
+            64: {
+                name: "Traditional Gouache",
+                para: "Traditional gouache can be reactivated with water. It allows easy corrections and smooth layering.",
+                featured: [
+                    "Reworkable.",
+                    "High opacity.",
+                    "Smooth blending.",
+                    "Easy corrections."
+                ],
+                price: "10,800.00",
+                img: "https://www.outdoorpainter.com/wp-content/uploads/2025/02/duomo-view.jpg"
+            },
+
+            65: {
+                name: "Neon Gouache",
+                para: "Neon gouache produces bright fluorescent colors. It is perfect for bold and creative artwork.",
+                featured: [
+                    "Neon shades.",
+                    "High visibility.",
+                    "Smooth application.",
+                    "Matte finish."
+                ],
+                price: "12,000.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzczdLCqyQtirz2IEoNheM3A1RchQWSolglg&s"
+            },
+
+            /* ================= FABRIC COLORS ================= */
+
+            71: {
+                name: "Permanent Fabric Paint",
+                para: "Permanent fabric paint bonds strongly with fabric fibers. It stays flexible after drying. Ideal for long lasting designs.",
+                featured: [
+                    "Wash resistant.",
+                    "Flexible finish.",
+                    "Strong bonding.",
+                    "Long durability."
+                ],
+                price: "9,000.00",
+                img: "https://m.media-amazon.com/images/I/81+W6bnHvcL.jpg"
+            },
+
+            72: {
+                name: "Fabric Acrylic Colors",
+                para: "Fabric acrylic colors provide bright shades on textiles. They do not stiffen fabric. Perfect for clothing art.",
+                featured: [
+                    "Bright pigments.",
+                    "Crack resistant.",
+                    "Soft fabric feel.",
+                    "Smooth application."
+                ],
+                price: "10,500.00",
+                img: "https://www.montmarte.com/cdn/shop/articles/vlcsnap-2024-12-20-09h53m33s513.png?v=1734652468"
+            },
+
+            73: {
+                name: "Fabric Spray Colors",
+                para: "Fabric spray colors allow even and quick coverage. They are ideal for large designs and gradients.",
+                featured: [
+                    "Even spray.",
+                    "Quick drying.",
+                    "Smooth finish.",
+                    "Easy usage."
+                ],
+                price: "11,000.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQffOj6S0viRXQp9lOsTDe1jyD5aLm0wpR-Hw&s"
+            },
+
+            74: {
+                name: "Metallic Fabric Colors",
+                para: "Metallic fabric colors add shimmer to textile designs. They enhance decorative and fashion artwork.",
+                featured: [
+                    "Metallic shine.",
+                    "Strong adhesion.",
+                    "Wash safe.",
+                    "Decorative effect."
+                ],
+                price: "13,500.00",
+                img: "https://i.pinimg.com/564x/ff/95/71/ff9571ae8f4a8ac7d523b02c32d0b035.jp"
+            },
+
+            75: {
+                name: "Glow Fabric Colors",
+                para: "Glow fabric colors shine in low light. They create fun and creative designs. Popular for costumes.",
+                featured: [
+                    "Glow in dark.",
+                    "Bright colors.",
+                    "Flexible paint.",
+                    "Easy application."
+                ],
+                price: "12,800.00",
+                img: "https://i.pinimg.com/236x/91/14/a0/9114a0d357f96ab29c5eb4f6f8767523.jpg"
+            },
+
+            /* ================= GLASS COLORS ================= */
+
+            81: {
+                name: "Transparent Glass Paint",
+                para: "Transparent glass paint allows light to pass through. It creates beautiful stained glass effects.",
+                featured: [
+                    "Transparent finish.",
+                    "Bright colors.",
+                    "Smooth flow.",
+                    "Light reflective."
+                ],
+                price: "8,500.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRfmr70PiUig634B73brroo1mXZOb4X-2-VA&s"
+            },
+
+            82: {
+                name: "Frosted Glass Paint",
+                para: "Frosted glass paint creates a cloudy look. It adds privacy while maintaining elegance.",
+                featured: [
+                    "Frosted effect.",
+                    "Smooth coating.",
+                    "Durable finish.",
+                    "Easy to apply."
+                ],
+                price: "9,200.00",
+                img: "https://www.artglasssupplies.com/blog/wp-content/uploads/2022/06/aa.png"
+            },
+
+            83: {
+                name: "Glossy Glass Paint",
+                para: "Glossy glass paint provides shiny and vibrant results. Ideal for decorative glass art.",
+                featured: [
+                    "High gloss.",
+                    "Bright shades.",
+                    "Smooth surface.",
+                    "Long lasting shine."
+                ],
+                price: "10,000.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAaqKyUhw1w82U20LC5z0leH05uym7vXcwsA&s"
+            },
+
+            84: {
+                name: "Outliner Glass Paint",
+                para: "Outliner glass paint is used for defining borders. It ensures clean and controlled designs.",
+                featured: [
+                    "Sharp outlines.",
+                    "Good control.",
+                    "Strong adhesion.",
+                    "Clean finish."
+                ],
+                price: "7,800.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFVtnhgZ-D5gZUmoaB7ufKP1hl72JamB0Clw&s"
+            },
+
+            85: {
+                name: "Heat-Set Glass Paint",
+                para: "Heat-set glass paint becomes permanent after baking. Suitable for functional glass items.",
+                featured: [
+                    "Permanent finish.",
+                    "Heat resistant.",
+                    "Strong bonding.",
+                    "Wash safe."
+                ],
+                price: "12,000.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9nYrdd8y6Cs8bZqWChfaituc_y8eCIMJ0TA&s"
+            },
+
+            /* ================= METALLIC COLORS ================= */
+
+            91: {
+                name: "Gold Metallic Paint",
+                para: "Gold metallic paint gives a rich luxurious shine. Ideal for decorative highlights and premium artwork.",
+                featured: [
+                    "Rich gold tone.",
+                    "High shine.",
+                    "Strong coverage.",
+                    "Luxury look."
+                ],
+                price: "15,000.00",
+                img: "https://oytra.com/cdn/shop/files/4_436ee48e-fbf0-4f31-8dc0-f4c2e362d86a.png?v=1753688997&width=1445"
+            },
+
+            92: {
+                name: "Silver Metallic Paint",
+                para: "Silver metallic paint offers reflective brilliance. Perfect for modern and decorative designs.",
+                featured: [
+                    "Reflective finish.",
+                    "Smooth texture.",
+                    "Bright shine.",
+                    "Durable coating."
+                ],
+                price: "14,500.00",
+                img: "https://i.ytimg.com/vi/ZDoBTPFTrbg/maxresdefault.jpg"
+            },
+
+            93: {
+                name: "Bronze Metallic Paint",
+                para: "Bronze metallic paint creates warm antique effects. Adds depth and character to artwork.",
+                featured: [
+                    "Antique look.",
+                    "Warm tone.",
+                    "Smooth coverage.",
+                    "Artistic depth."
+                ],
+                price: "13,800.00",
+                img: "https://i.ytimg.com/vi/XzOixu5x9vQ/maxresdefault.jpg"
+            },
+
+            94: {
+                name: "Copper Metallic Paint",
+                para: "Copper metallic paint delivers bold metallic shine. Ideal for modern décor and accents.",
+                featured: [
+                    "Copper shine.",
+                    "Strong pigments.",
+                    "Smooth finish.",
+                    "Stylish effect."
+                ],
+                price: "14,200.00",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd7l1-vFQlIWMFvJZPftNFTXRm_2KNZbBgCQ&s"
+            },
+
+            95: {
+                name: "Pearl Metallic Paint",
+                para: "Pearl metallic paint provides a soft shimmering glow. Perfect for elegant and premium finishes.",
+                featured: [
+                    "Pearl shimmer.",
+                    "Soft glow.",
+                    "Smooth texture.",
+                    "Elegant finish."
+                ],
+                price: "16,000.00",
+                img: "https://www.shutterstock.com/image-illustration/currents-translucent-hues-snaking-metallic-260nw-2618116389.jpg"
+            }
+
+
+
+        };
+
+        // Function to open detail section
+        function openDetailPage(p) {
+            document.getElementById("detailName").innerText = p.name;
+            document.getElementById("detail-para").innerText = p.para;
+            document.querySelector(".detail-features-list").innerText = p.featured;
+            document.getElementById("detailPrice").innerText = p.price;
+            document.getElementById("detailImg").src = p.img;
+
+            document.querySelector(".detail-section").style.display = "block";
+            document.getElementById("detailPage").style.display = "block";
+
+            let featuredList = document.querySelector(".detail-features-list");
+            featuredList.innerHTML = ""; // old clear
+
+            if (p.featured && p.featured.length > 0) {
+                p.featured.forEach(item => {
+                    let li = document.createElement("li");
+                    li.innerText = item;
+                    featuredList.appendChild(li);
+                });
+            }
+        }        // Add click event to all cards
+        document.querySelectorAll(".card").forEach(card => {
+            card.onclick = () => {
+                let id = card.id;
+                openDetailPage(products[id]);
+            };
+        });
+
+        document.getElementById("closeDetail").onclick = function () {
+            document.getElementById("detailPage").style.display = "none";
+            document.querySelector(".detail-section").style.display = "none";
+        };
+
+        // .........................modal page start................
+        document.getElementById('buyNowForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let phone = document.getElementById('phone').value;
+            let address = document.getElementById('address').value;
+            let ordernotes = document.getElementById('ordernotes').value;
+            let city = document.getElementById('city').value;
+
+            if (name === '' || email === '' || phone === '' || address === '' || ordernotes === '' || city === '') {
+                alert("Please Enter All Fields");
+            } else {
+                alert("Your Order is Successfully Placed");
+
+                // close bootstrap modal
+                var mymodal = document.getElementById('buyNowModal');
+                var modal = bootstrap.Modal.getInstance(mymodal);
+                modal.hide();
+
+                // clear form
+                document.getElementById('buyNowForm').reset();
+            }
+        });
+
+        // .........................modal page end................
+    </script>
+</body>
+
+</html>

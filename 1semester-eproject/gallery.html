@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleria - Gallery</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="fontawesome-free-7.0.1-web/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+/* .................navbar styling..................... */
+
+        .navbar {
+            background-color: #1e1e1e;
+            height: 100px;
+        }
+
+        .navbar-brand .logo-img {
+            width: 140px;
+            height: 100px
+        }
+
+        .navbar-nav {
+            gap: 30px;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: 0.3s;
+            font-size: 1.2rem;
+            color: #f5f5f5 !important;
+            font-weight: bold;
+        }
+
+
+        .navbar-container {
+            background-color: #1e1e1e !important;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: .5rem;
+            bottom: -.5px;
+            width: 0%;
+            height: 3px;
+            background: #1B4965;
+            transition: 0.4s ease-in-out;
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            color: #1B4965 !important;
+        }
+
+        .btn-signup {
+            background-color: #1B4965;
+            color: #f5f5f5;
+            border: none;
+            width: 150px;
+            height: 40px;
+            padding: 8px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-signup:hover {
+            background-color: #FF8C42;
+            color: #121212;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,140,66,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+
+        /* Dropdown Styles */
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-menu {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 10px 0;
+            background-color: #121212;
+            border: 1px solid #1B4965;
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            transition: background-color 0.2s ease;
+            color: #f5f5f5;
+        }
+
+        .dropdown-item:hover {
+            background-color: #1B4965;
+            color: #f5f5f5;
+        }
+
+        .navbar-collapse .mobile-search {
+            display: none;
+        }
+
+        /* LEFT SLIDE MOBILE NAVBAR */
+        @media (max-width: 991px) {
+            .navbar-brand .logo-img {
+                width: 100px;
+                height: 50px
+            }
+
+            .navbar-collapse {
+                position: fixed;
+                top: 100px;
+                left: -100%;
+                width: 280px;
+                height: 100vh;
+                background: #121212;
+                padding: 50px 20px 20px;
+                transition: 0.4s ease-in-out;
+            }
+
+            .navbar-collapse.show {
+                left: 0;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+            }
+
+            .navbar-collapse .nav-link {
+                display: inline-block;
+                padding-bottom: 6px;
+            }
+
+            .navbar-collapse .nav-link::after {
+                left: 0;
+                bottom: 0;
+                width: 0%;
+            }
+
+            .navbar-collapse .nav-link:hover::after {
+                width: 100%;
+            }
+
+            .nav-buttons {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+            }
+        }
+
+        /* .................navbar styling end..................... */
+
+                /* .............register sign up form start................... */
+        .register-form-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 9999;
+        }
+
+
+        .sign-up-form {
+            display: flex;
+            justify-content: center;
+        }
+
+        .sign-up {
+            position: relative;
+            /* for close button */
+            margin-top: 100px;
+            text-align: center;
+            padding: 15px 30px;
+            width: 100%;
+            border-radius: 10px;
+            height: auto;
+            border: none;
+            background-color: #fff;
+        }
+
+        .register-form-main-head {
+            text-transform: capitalize;
+            font-weight: bold;
+            color: #1b4965;
+        }
+
+        .sign-up p {
+            text-transform: capitalize;
+            font-weight: 500;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .forget-password {
+            color: #ff8c42;
+        }
+
+        .forget-password:hover {
+            color: #1b4965;
+        }
+
+        .register-sign-up-form-input {
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            margin: 30px 10px;
+        }
+
+        .register-sign-in-form-input {
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            margin: 20px 10px;
+
+        }
+
+        .form-control::placeholder {
+            text-align: left;
+            text-transform: capitalize;
+        }
+
+        .register-btn,
+        .register-sign-in-btn {
+            text-decoration: none;
+            text-transform: capitalize;
+            background-color: #1b4965;
+            width: 100%;
+            color: white;
+            margin: 30px auto;
+        }
+
+        .register-btn:hover,
+        .register-sign-in-btn:hover {
+            text-decoration: none;
+            text-transform: capitalize;
+            background-color: #ff8c42;
+            width: 100%;
+            color: white;
+            margin: 30px auto;
+        }
+
+        .sign-in-link a {
+            color: #ff8c42;
+            text-decoration: none;
+        }
+
+        .sign-in-link a:hover {
+            color: #1b4965;
+        }
+
+        .sign-in-form {
+            position: relative;
+            top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sign-up .register-sign-up-btn {
+            text-decoration: none;
+            margin-left: 5px;
+            text-transform: capitalize;
+            font-weight: 500;
+            color: #ff8c42;
+        }
+
+        .sign-up .register-sign-up-btn:hover {
+            color: #1b4965;
+        }
+
+        /* Cross button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: #198754;
+        }
+
+        .close-btn:hover {
+            color: red;
+        }
+        /* .............register sign up form end................... */
+
+        /* ..................gallery section start................. */
+    .gallery-section {
+        width: 100%;
+        margin: 150px auto;
+        background-color: rgba(27, 73, 101, 0.05);
+    }
+
+    .gallery-filter-box {
+        margin: 60px auto;
+        text-align: center;
+    }
+
+    .gallery-sort-btn {
+        background: #1B4965;
+        color: #f5f5f5;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 10px auto;
+    }
+
+    .gallery-sort-btn:hover {
+        background: #FF8C42;
+        color: #121212;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(255, 140, 66, 0.4);
+    }
+
+    .gallery-sort-btn i {
+        transition: transform 0.3s ease;
+    }
+
+    .gallery-sort-btn.active i {
+        transform: rotate(180deg);
+    }
+
+    .gallery-filter-sidebar {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        width: 85vw;
+        max-width: 350px;
+        height: 100vh;
+        background: white;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+        padding: 80px 20px 30px;
+        transition: right 0.4s ease;
+        z-index: 1999;
+        overflow-y: auto;
+    }
+
+    .gallery-filter-sidebar.show {
+        right: 0;
+    }
+
+    .gallery-filter-sidebar h3 {
+        font-size: 1.5rem;
+        color: #1B4965;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    .gallery-sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        z-index: 1998;
+    }
+
+    .gallery-sidebar-overlay.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .gallery-close-sidebar {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 40px;
+        height: 40px;
+        background: #1B4965;
+        color: #f5f5f5;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .gallery-close-sidebar:hover {
+        background: #FF8C42;
+        color: #121212;
+    }
+
+    .gallery-filter-btn {
+        background: rgba(27, 73, 101, 0.1);
+        border: none;
+        color: #1B4965;
+        padding: 14px 28px;
+        margin: 8px 5px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        width: 100%;
+        text-align: center;
+    }
+
+    .gallery-filter-btn:hover,
+    .gallery-filter-btn.active {
+        background: #1B4965;
+        color: #f5f5f5;
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(27, 73, 101, 0.5);
+    }
+
+    .gallery-filter-btn.active {
+        background: #FF8C42;
+        color: #121212;
+    }
+
+    .gallery-row {
+        display: grid;
+        gap: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .gallery-item {
+        border-radius: 20px;
+        border: solid 5px white;
+        box-shadow: 0 4px 8px rgba(27, 73, 101, 0.1);
+        transition: all 0.3s ease;
+        aspect-ratio: 16/10;
+        overflow: hidden;
+    }
+
+    .gallery-item:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 20px rgba(255, 140, 66, 0.4);
+        border-color: #FF8C42;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        object-fit: cover;
+    }
+
+    /* No Results */
+    #noResults {
+        display: none;
+        text-align: center;
+        padding: 60px 20px;
+        color: #1B4965;
+    }
+
+    #noResults i {
+        font-size: 4rem;
+        color: rgba(27, 73, 101, 0.3);
+        margin-bottom: 20px;
+    }
+
+    #noResults h3 {
+        color: #1B4965;
+        margin-bottom: 10px;
+    }
+
+    #noResults p {
+        color: rgba(27, 73, 101, 0.7);
+    }
+
+    .gallery-row-1-items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-row-2-items {
+        grid-template-columns: 40% 30%;
+    }
+
+    .gallery-row-3-items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-row-4-items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-row-5-items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-row-6-items {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .gallery-row-7-items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-row-8-items {
+        grid-template-columns: 20% 30% 20%;
+    }
+
+    .gallery-row-9-items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-row-10-items {
+        grid-template-columns: 30% 1fr 1fr;
+    }
+
+    .gallery-row-11-items {
+        grid-template-columns: 30% 40% 20%;
+    }
+
+    .gallery-row-12-items {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .gallery-row-13-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-row-14-items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 1199px) and (min-width: 992px) {
+        .gallery-row-1-items {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .gallery-row-2-items,
+        .gallery-row-3-items,
+        .gallery-row-4-items,
+        .gallery-row-5-items,
+        .gallery-row-6-items,
+        .gallery-row-7-items,
+        .gallery-row-8-items,
+        .gallery-row-9-items,
+        .gallery-row-10-items,
+        .gallery-row-11-items,
+        .gallery-row-12-items,
+        .gallery-row-13-items,
+        .gallery-row-14-items {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 991px) {
+        .gallery-filter-box {
+            padding: 20px 15px;
+            margin-top: 140px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-sort-btn {
+            width: 100%;
+            max-width: 280px;
+            justify-content: center;
+            padding: 14px 20px;
+            font-size: 0.95rem;
+        }
+
+        .gallery-filter-sidebar {
+            padding: 70px 15px 30px;
+        }
+
+        .gallery-filter-sidebar h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #1B4965;
+        }
+
+        .gallery-row-1-items,
+        .gallery-row-2-items,
+        .gallery-row-3-items,
+        .gallery-row-4-items,
+        .gallery-row-5-items,
+        .gallery-row-6-items,
+        .gallery-row-7-items,
+        .gallery-row-8-items,
+        .gallery-row-9-items,
+        .gallery-row-10-items,
+        .gallery-row-11-items,
+        .gallery-row-12-items,
+        .gallery-row-13-items,
+        .gallery-row-14-items {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 575px) {
+        .gallery-row-1-items,
+        .gallery-row-2-items,
+        .gallery-row-3-items,
+        .gallery-row-4-items,
+        .gallery-row-5-items,
+        .gallery-row-6-items,
+        .gallery-row-7-items,
+        .gallery-row-8-items,
+        .gallery-row-9-items,
+        .gallery-row-10-items,
+        .gallery-row-11-items,
+        .gallery-row-12-items,
+        .gallery-row-13-items,
+        .gallery-row-14-items {
+            grid-template-columns: 1fr;
+        }
+
+        .gallery-filter-box {
+            padding: 15px 10px;
+            margin-top: 140px;
+        }
+
+        .gallery-sort-btn {
+            width: 100%;
+            max-width: none;
+            padding: 12px 16px;
+            font-size: 0.9rem;
+        }
+
+        .gallery-filter-sidebar {
+            width: 90vw;
+            max-width: none;
+            padding: 70px 20px 30px;
+        }
+
+        .gallery-filter-sidebar h3 {
+            font-size: 1.2rem;
+            color: #1B4965;
+        }
+
+        .gallery-item {
+            border: solid 3px white;
+        }
+    }
+
+    @media (min-width: 576px) and (max-width: 768px) {
+        .gallery-row-1-items,
+        .gallery-row-2-items,
+        .gallery-row-3-items,
+        .gallery-row-4-items,
+        .gallery-row-5-items,
+        .gallery-row-6-items,
+        .gallery-row-7-items,
+        .gallery-row-8-items,
+        .gallery-row-9-items,
+        .gallery-row-10-items,
+        .gallery-row-11-items,
+        .gallery-row-12-items,
+        .gallery-row-13-items,
+        .gallery-row-14-items {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 375px) {
+        .gallery-sort-btn {
+            padding: 10px 14px;
+            font-size: 0.85rem;
+        }
+
+        .gallery-filter-btn {
+            padding: 12px 14px;
+            font-size: 0.85rem;
+        }
+    }
+
+   /* .........................Footer section start............................ */
+        footer {
+            background: #121212;
+            padding: 80px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 3fr 2fr 6fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        .footer-about h3 {
+            font-size: 2rem;
+            color: #1B4965;
+            margin-bottom: 20px;
+        }
+
+        .footer-about p {
+            margin-bottom: 30px;
+            color: #f5f5f5;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 140, 66, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1B4965;
+            text-decoration: none;
+            transition: all 0.5s ease;
+        }
+
+        .social-link:hover {
+            background: #FF8C42;
+            color: #121212;
+            transform: translateY(-10px);
+        }
+
+        .footer-links h4 {
+            margin-left: 30px;
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 1.3rem;
+            color: #1B4965;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after,
+        .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #FF8C42;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li a i {
+            color: #FF8C42;
+        }
+        .footer-links ul li a:hover {
+            color: #1B4965;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #f5f5f5;
+            text-decoration: none;
+            transition: all 1s ease;
+            display: flex;
+            align-items: center;
+            line-height: 40px;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: #FF8C42;
+            transform: translateX(10px);
+        }
+
+
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 25px 0;
+            text-align: center;
+            color: #f5f5f5;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-contact p {
+            color: #f5f5f5;
+        }
+
+        .footer-contact .input {
+            width: 80%;
+            height: 40px;
+            border-radius: 10px;
+            padding: 10px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #f5f5f5;
+        }
+
+        .footer-contact .input::placeholder {
+            color: rgba(245, 245, 245, 0.7);
+        }
+
+        .subscribe-box {
+            display: flex;
+            gap: 20px;
+        }
+
+        .subscribe-box #footersubscribeBtn {
+            padding: 0 10px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #1B4965;
+            border-radius: 10px;
+            color: #f5f5f5;
+            transition: all 0.3s ease;
+        }
+
+        .subscribe-box #footersubscribeBtn:hover {
+            background-color: #FF8C42;
+            color: #121212;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width:768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* .............................footer section end..................... */
+</style>
+    </style>
+</head>
+
+<body>
+
+    <!-- /* .................navbar section start..................... */ -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container-fluid navbar-container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#home">
+                <img src="images/navbar-logo-original.png" class="logo-img" alt="">
+            </a>
+
+            <!-- Toggler Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" b>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Content -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- Links -->
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button">Paintings</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="surface.html">Surface</a></li>
+                            <li><a class="dropdown-item" href="paintings.html">Color Type</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#product-section">products</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+
+                <!-- Buttons -->
+                <div class="nav-buttons">
+                    <button class="btn btn-signup" onclick="openSignup()">Sign Up</button>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- /* .................navbar section end..................... */ -->
+
+    <!-- .....................sign-up and register form start.......,.......... -->
+         <!-- Sign Up Form -->
+    <section class="register-form-section">
+        <div id="sign-up" class="container sign-up-form">
+            <div class="col-md-6 col-lg-4 col-10">
+                <div class="sign-up">
+                    <span class="close-btn">&times;</span>
+                    <h1 class="register-form-main-head">Galleria</h1>
+                    <p>create your account</p>
+                    <input type="text" id="signup-name" class="form-control register-sign-up-form-input"
+                        placeholder="full name">
+                    <input type="text" id="signup-email" class="form-control register-sign-up-form-input"
+                        placeholder="email">
+                    <input type="password" id="signup-pass" class="form-control register-sign-up-form-input"
+                        placeholder="password">
+                    <input type="password" id="signup-cpass" class="form-control register-sign-up-form-input"
+                        placeholder="confirm password">
+                    <div id="register-btn" class="reg-btn btn register-btn">register
+                    </div>
+                    <p class="sign-in-link">already have an account? <a href="" id="open-sign-in">sign in</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign In Form -->
+        <div id="sign-in" class="container  sign-in-form  d-none">
+            <div class="col-md-6 col-lg-4 col-10">
+                <div id="log" class="sign-up">
+                    <span class="close-btn">&times;</span>
+                    <h1 class="register-form-main-head">Galleria</h1>
+                    <p>Great to have you back.</p>
+                    <input type="text" id="signin-email" class="form-control register-sign-in-form-input"
+                        placeholder="email">
+                    <input type="password" id="signin-pass" class="form-control register-sign-in-form-input"
+                        placeholder="password">
+                    <a href="" class="forget-password">forgot password?</a>
+                    <div class="reg-btn btn register-sign-in-btn">sign in</div>
+                    <p>don't have an account? <a href="" class="register-sign-up-btn" id="open-sign-up"> sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- .....................sign-up and register form end.......,.......... -->
+
+    <!-- /* .................gallery section end..................... */ -->
+    <section class="gallery-section">
+        <div class="container-fluid gallery-container">
+
+            <div class="gallery-filter-box">
+                <button class="gallery-sort-btn" onclick="toggleSidebar()">
+                    Filter by Category
+                </button>
+            </div>
+
+            <div class="gallery-sidebar-overlay" onclick="toggleSidebar()"></div>
+            <div class="gallery-filter-sidebar">
+                <button class="gallery-close-sidebar" onclick="toggleSidebar()">✕</button>
+                <h3>Filter Categories</h3>
+                <button class="gallery-filter-btn active" data-filter="all">All Paintings</button>
+                <button class="gallery-filter-btn" data-filter="abstract">Abstract</button>
+                <button class="gallery-filter-btn" data-filter="landscape">Landscape</button>
+                <button class="gallery-filter-btn" data-filter="flower">Flower</button>
+                <button class="gallery-filter-btn" data-filter="nature">Nature</button>
+                <button class="gallery-filter-btn" data-filter="figurative">Figurative</button>
+                <button class="gallery-filter-btn" data-filter="religious">Religious</button>
+            </div>
+
+            <div class="gallery-row gallery-row-1-items">
+                <div class="gallery-item" data-category="landscape"><img
+                        src="https://ids.si.edu/ids/deliveryService?id=SAAM-1977.107.1_2&max_w=550"
+                        alt="Abstract"></div>
+                <div class="gallery-item" data-category="abstract"><img
+                        src="https://i.pinimg.com/736x/28/13/49/28134909645d6e9e7f5dce9cd29af92f.jpg"
+                        alt="Abstract"></div>
+                <div class="gallery-item" data-category="nature"><img
+                        src="https://www.jiomart.com/images/product/original/rvvgf4rnmz/elegance-beautiful-nature-landscape-digital-canvas-painting-big-unframed-canvas-48-x-32-inch-product-images-orvvgf4rnmz-p598467660-0-202302171032.jpg?im=Resize=(1000,1000)"
+                        alt="Abstract"></div>
+            </div>
+
+            <div class="gallery-row gallery-row-2-items">
+                <div class="gallery-item" data-category="landscape"><img
+                        src="https://render.fineartamerica.com/images/rendered/medium/print/10/7.5/break/images-medium-5/space-for-reflection-chuck-pinson.jpg"
+                        alt="Landscape"></div>
+                <div class="gallery-item" data-category="figurative"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXlfNqmv2zMd2PKuZdQUveaTFYLpO2avpC_A&s"
+                        alt="Flower"></div>
+            </div>
+
+            <div class="gallery-row gallery-row-3-items">
+                <div class="gallery-item" data-category="nature"><img
+                        src="https://www.artzfolio.com/cdn/shop/products/AZ5000385PRE_UN_RF_01_A_UN_2bd3d3af-d45f-4e1c-9465-cc6a3563ef15_1000x.jpg?v=1667632789"
+                        alt="Nature"></div>
+                <div class="gallery-item" data-category="abstract"><img
+                        src="https://i.pinimg.com/736x/bb/c3/58/bbc3584aa1b6b9f20e368716fd540d75.jpg"
+                        alt="Nature"></div>
+                <div class="gallery-item" data-category="landscape"><img
+                        src="https://storage.googleapis.com/pod_public/1300/234269.jpg"
+                        alt="Nature"></div>
+            </div>
+
+            <div class="gallery-row gallery-row-4-items">
+                <div class="gallery-item" data-category="nature"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHld1wYZU-EV0gdu319Fih9Wup5mBgJcCy1w&s"
+                        alt="Figurative"></div>
+                <div class="gallery-item" data-category="abstract"><img
+                        src="https://plus.unsplash.com/premium_photo-1664438942574-e56510dc5ce5?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWJzdHJhY3QlMjBhcnR8ZW58MHx8MHx8fDA%3D"
+                        alt="Religious"></div>
+                <div class="gallery-item" data-category="landscape"><img
+                        src="https://img.freepik.com/premium-photo/this-is-beautiful-landscape-painting-colors-are-vibrant-brushstrokes-are-bold-painting-depicts-sunset-lake_14117-529528.jpg"
+                        alt="Religious"></div>
+            </div>
+
+            <div class="gallery-row gallery-row-5-items">
+                <div class="gallery-item" data-category="religious"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJw5n8wH8XZNw9oZNXsq662G5YvYAUvQufDg&s"
+                        alt="Abstract"></div>
+                <div class="gallery-item" data-category="abstract"><img
+                        src="https://osnatfineart.com/artworks/full/painting-4403-1-beautiful-abstract-art-on-canvas-modern-colorful-best-living-room-wall-art.webp"
+                        alt="Abstract"></div>
+                <div class="gallery-item" data-category="religious"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlcMfT6hYXg4mpCoCsz_CsiqgJJXdt9aTOog&s"
+                        alt="Landscape"></div>
+            </div>
+
+            <div class="gallery-row gallery-row-6-items">
+                <div class="gallery-item" data-category="flower"><img
+                        src="https://webneel.com/daily/sites/default/files/images/daily/11-2013/10-flower-paintings.jpg"
+                        alt="Flower"></div>
+                <div class="gallery-item" data-category="landscape"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDIR5K7l4Ejqh3-bmSpd89esRRkYN9mXtPGw&s"
+                        alt="Flower"></div>
+                <div class="gallery-item" data-category="nature"><img
+                        src="https://www.collettivovv.org/wp-content/uploads/2020/05/Nature-paintings.jpg"
+                        alt="Nature"></div>
+                <div class="gallery-item" data-category="abstract"><img
+                        src="https://m.media-amazon.com/images/I/71VW72uQqKL._AC_UF894,1000_QL80_.jpg"
+                        alt="Nature"></div>
+            </div>
+
+            <div class="gallery-row gallery-row-7-items">
+                <div class="gallery-item" data-category="landscape"><img
+                        src="https://i.ytimg.com/vi/cFVevL54vYA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBsx1Yc1Vf-AJZ6T_zpVbHVJlUGqg"
+                        alt="Landscape"></div>
+                <div class="gallery-item" data-category="figurative"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9FQh07zASbNr_bE-5oH58oJgogABjGVYRSg&s"
+                        alt="Figurative"></div>
+                <div class="gallery-item" data-category="abstract"><img
+                        src="https://leondevenice.com/cdn/shop/files/Colorful-Abstract-Flowers-by-Leon-Devenice.jpg?v=1694118475"
+                        alt="Figurative"></div>
+            </div>
+
+            <div class="gallery-row gallery-row-8-items">
+                <div class="gallery-item" data-category="figurative"><img
+                        src="https://rukminim2.flixcart.com/image/480/640/j31wb680/painting/t/f/h/efcp880-elegance-original-imaeu9zrueqbdyuy.jpeg?q=90"
+                        alt="Religious"></div>
+                <div class="gallery-item" data-category="landscape"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqso3xGkh5HbVMOHlwSsilm32WiE57ymwIYg&s"
+                        alt="Nature"></div>
+                <div class="gallery-item" data-category="nature"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSipthu4X9qjU9oZGBG_lU0vSMyp0EEML7D6g&s" alt="Abstract"></div>
+            </div>
+
+            <div class="gallery-row gallery-row-9-items">
+                <div class="gallery-item" data-category="abstract"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn7_wWlK5i0gXHEdVBcOX9fq91XCQzmPZUAg&s" alt="Abstract"></div>
+                <div class="gallery-item" data-category="landscape"><img
+                        src="https://webneel.com/daily/sites/default/files/images/daily/12-2014/1-sunrise-painting.jpg" alt="Abstract"></div>
+                <div class="gallery-item" data-category="flower"><img
+                        src="https://www.shutterstock.com/image-illustration/beautiful-forest-flower-artwork-handmade-260nw-2291089793.jpg" alt="Abstract"></div>
+            </div>
+
+            <div class="gallery-row gallery-row-10-items">
+                <div class="gallery-item" data-category="figurative"><img
+                        src="https://contemporaryartandartist.wordpress.com/wp-content/uploads/2017/01/figurative-art.jpg"
+                        alt="Landscape"></div>
+                <div class="gallery-item" data-category="religious"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8hqKbzMygnDa3FQKlWmwhO58L7KxrmsR0jA&s"
+                        alt="Landscape"></div>
+                <div class="gallery-item" data-category="landscape"><img
+                        src="https://urartstudio.com/wp-content/uploads/2021/08/SUNET-LANDSCAPE-PAINTING-BY-PETER-DRANITSIN-04.jpg"
+                        alt="Flower"></div>
+            </div>
+            <div class="gallery-row gallery-row-11-items">
+                <div class="gallery-item" data-category="flower"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPaFOQNFowdk8vUIB6KsM6E2sNyr4FF6chvg&s"
+                        alt="Landscape"></div>
+                <div class="gallery-item" data-category="figurative"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHtPHysg0NGeinlk_wn-M1RO22OUzJuZmXpw&s"
+                        alt="Landscape"></div>
+                <div class="gallery-item" data-category="flower"><img
+                        src="https://cdn.shopify.com/s/files/1/0092/0266/3475/files/1_1.jpg?v=1594560838"
+                        alt="Flower"></div>
+            </div>
+            <div class="gallery-row gallery-row-12-items">
+                <div class="gallery-item" data-category="flower"><img
+                        src="https://images.saatchiart.com/saatchi/882784/art/3164938/2234829-HSC00001-7.jpg"
+                        alt="Landscape"></div>
+                <div class="gallery-item" data-category="figurative"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiElfGYI7fxAdrvIWDi0ynrRwaKGQ6t8RX5w&s"
+                        alt="Landscape"></div>
+                <div class="gallery-item" data-category="religious"><img
+                        src="https://i.pinimg.com/236x/89/5e/ea/895eea31725b21b9bdc19812ff28c024.jpg"
+                        alt="Flower"></div>
+                <div class="gallery-item" data-category="nature"><img
+                        src="https://www.indiaart.com/Paintings/5417/large/13486.jpg.ashx?height=350"
+                        alt="Flower"></div>
+            </div>
+            <div class="gallery-row gallery-row-13-items">
+                <div class="gallery-item" data-category="flower"><img
+                        src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Zmxvd2VyJTIwcGFpbnRpbmd8ZW58MHx8MHx8fDA%3D"
+                        alt="Landscape"></div>
+                <div class="gallery-item" data-category="religious"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl_a54OWAEbF1XiTsW-XXOH3IrPH4Z9O7Uxw&s"
+                        alt="Landscape"></div>
+            </div>
+            <div class="gallery-row gallery-row-14-items">
+                <div class="gallery-item" data-category="flower"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS1iPG_9inTbtU6WXxpPk6RoDrnkfcRy8yEw&s"
+                        alt="Landscape"></div>
+                <div class="gallery-item" data-category="nature"><img
+                        src="https://cdn.shopify.com/s/files/1/0252/2572/3982/files/k_311.jpg?v=1734592638 "
+                        alt="Landscape"></div>
+                <div class="gallery-item" data-category="figurative"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA9wyJW0GtzcWxU4QiukRHC-X6lNLPunoEsA&s"
+                        alt="Flower"></div>
+            </div>
+            <div id="noResults">
+                <i class="fas fa-search"></i>
+                <h3>No paintings found</h3>
+                <p>Try selecting a different category</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- /* .................gallery section end..................... */ -->
+
+        <!-- ...............................Footer start........................ -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Galleria</h3>
+                    <p>Creating exceptional digital experiences with modern design and cutting-edge technology. Let's
+                        build something amazing together.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Usefull Links</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-user"></i> About us</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-code"></i> Gallery</a></li>
+                        <li><a href="paintings.html"><i class="fas fa-briefcase"></i>Paintings</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+                        <li><a href="signup.html"><i class="fas fa-envelope"></i>Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Subscribe Now</h4>
+                    <p>Promotions, new products and sales.Not Forget Subscribe Our Brand.</p>
+                    <div class="subscribe-box" style="display:flex; gap:10px;">
+                        <input type="text" placeholder="SUBSCRIBE TO OUR NEWS LETTER ->" id="subscribeInput"
+                            class="input">
+                        <button id="footersubscribeBtn">&#8594;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; Gallery Is First Choice For You: BEST.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- ...............................Footer end........................ -->
+
+    <script src="jquerydownload.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+
+         // ..................sign up register form script start............
+        $(document).ready(function () {
+
+                        // Navbar button click → show form
+            $(".btn-signup, #open-signup-btn").click(function (e) {
+                e.preventDefault();
+                $("#sign-up").closest(".register-form-section").fadeIn(300);
+            });
+
+            // Close button
+            $(".close-btn").click(function () {
+                $(this).closest(".register-form-section").fadeOut(300);
+            });
+
+            // Open Login
+            $("#open-sign-in").click(function (e) {
+                e.preventDefault();
+                $("#sign-up").fadeOut(300, function () {
+                    $("#sign-in").removeClass("d-none").fadeIn(300);
+                });
+            });
+
+            // Open Sign Up from Sign In
+            $("#open-sign-up").click(function (e) {
+                e.preventDefault();
+                $("#sign-in").fadeOut(300, function () {
+                    $("#sign-up").removeClass("d-none").fadeIn(300);
+                });
+            });
+
+            // Simple Sign Up Validation
+            $("#register-btn").click(function () {
+                let name = $("#signup-name").val();
+                let email = $("#signup-email").val();
+                let pass = $("#signup-pass").val();
+                let cpass = $("#signup-cpass").val();
+
+                if (name === "" || email === "" || pass === "" || cpass === "") {
+                    alert("All fields are required!");
+                    return;
+                }
+                if (pass !== cpass) {
+                    alert("Passwords do not match!");
+                    return;
+                }
+
+                alert("Registration Successful!");
+                $("#signup-name, #signup-email, #signup-pass, #signup-cpass").val('');
+                $("#sign-up").closest(".register-form-section").fadeOut(300);
+            });
+        });
+
+        // ..................sign up register form script end............
+
+        function toggleSidebar() {
+            document.querySelector('.gallery-filter-sidebar').classList.toggle('show');
+            document.querySelector('.gallery-sidebar-overlay').classList.toggle('show');
+            }; 
+
+
+        $(function () {
+
+            $('.gallery-filter-btn').click(function () {
+
+                let filter = $(this).data('filter');
+
+                $('.gallery-filter-btn').removeClass('active');
+                $(this).addClass('active');
+
+                $('#noResults').hide();
+
+                if (filter == 'all') {
+                    $('.gallery-item').show();
+                } else {
+                    $('.gallery-item').hide();
+
+                    let items = $('.gallery-item[data-category="' + filter + '"]');
+                    items.show();
+
+                    if (items.length === 0) {
+                        $('#noResults').fadeIn();
+                    }
+                }
+            });
+
+        });
+
+                    // <!-- /* .................footer section end..................... */ -->
+        
+
+            // <!-- /* .................footer section end..................... */ -->
+    </script>
+</body>
+
+</html>
